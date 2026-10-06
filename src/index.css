@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: #087A3D;
+    --deep: #064D2C;
+    --secondary: #2E9E52;
+    --light: #EAF7EC;
+    --soft: #F5FBF5;
+    --cream: #FFFDF6;
+    --yellow: #F4C95D;
+    --earth: #8A6239;
+    --text: #183028;
+    --muted: #61706A;
+  }
+
+  body {
+    color: #183028;
+    background-color: #FFFFFF;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Specific enhancements for Kannada typography */
+  [lang="kn"], .font-kannada {
+    font-family: 'Noto Sans Kannada', system-ui, sans-serif;
+    line-height: 1.68;
+    letter-spacing: 0.01em;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F5FBF5;
+}
+::-webkit-scrollbar-thumb {
+  background: #B2D8BD;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #087A3D;
+}
+
+/* Smooth transitions */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hero container isolation */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle badge pulse */
+@keyframes subtle-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-subtle-pulse {
+  animation: subtle-pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
