@@ -66,7 +66,7 @@ export const Navbar: React.FC = () => {
       labelEn: 'About Us',
       labelKn: 'ನಮ್ಮ ಬಗ್ಗೆ',
       icon: Users,
-      hasDropdown: true,
+      hasDropdown: false,
     },
     {
       to: '/what-we-do',

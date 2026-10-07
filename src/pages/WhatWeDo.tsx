@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { Link } from 'react-router-dom';
-import { Tractor, Sprout, Users, Smartphone, ArrowRight, ShieldCheck, Check } from 'lucide-react';
+import { Tractor, Sprout, Handshake, Truck, ArrowRight, Check } from 'lucide-react';
 
 export const WhatWeDo: React.FC = () => {
-  const { t, isKannada } = useLanguage();
+  const { isKannada } = useLanguage();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -12,166 +12,328 @@ export const WhatWeDo: React.FC = () => {
 
   const pillars = [
     {
-      id: 'equipment',
-      title: t.whatWeDo.card1Title,
-      titleKn: t.whatWeDo.card1Kn,
-      desc: t.whatWeDo.card1Desc,
-      icon: <Tractor className="w-8 h-8 text-[#087A3D]" />,
-      emoji: '🚜',
-      image: 'https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=1000&q=80',
-      points: isKannada
-        ? [
-            'ದುಬಾರಿ ಯಂತ್ರಗಳನ್ನು ಖರೀದಿಸದೆ ಅಗತ್ಯವಿದ್ದಾಗ ಬಾಡಿಗೆಗೆ ಪಡೆಯುವ ಅವಕಾಶ',
-            'ಟ್ರ್ಯಾಕ್ಟರ್, ರೋಟಾವೇಟರ್, ಪವರ್ ಟಿಲ್ಲರ್ ಮತ್ತು ಕಂಬೈನ್ ಹಾರ್ವೆಸ್ಟರ್‌ಗಳ ಶೋಧನೆ',
-            'ಗ್ರಾಮೀಣ ಯಂತ್ರ ಮಾಲೀಕರೊಂದಿಗೆ ನೇರ ಸಂಪರ್ಕ ಮತ್ತು ಪರಸ್ಪರ ಸಹಯೋಗ',
-            'ಕಾಲೋಚಿತ ಕೃಷಿ ಕೆಲಸಗಳಿಗೆ ಸಕಾಲಿಕ ಯಾಂತ್ರೀಕರಣದ ಬೆಂಬಲ'
-          ]
-        : [
-            'Enabling on-demand access to tractors, rotavators, and harvesters',
-            'Eliminating unnecessary capital debt for smallholder farmers',
-            'Connecting farmers directly with verified local machine owners',
-            'Ensuring timely field preparation before monsoon rains'
-          ],
+      id: 'equipment-access',
+      titleEn: 'Agricultural Equipment Access',
+      titleKn: 'ಕೃಷಿ ಯಂತ್ರೋಪಕರಣಗಳ ಪ್ರವೇಶ',
+      descEn:
+        'Farmers can discover tractors, rotavators, harvesters and other agricultural equipment, connect with equipment owners and access or rent machinery when needed.',
+      descKn:
+        'ರೈತರು ಟ್ರ್ಯಾಕ್ಟರ್, ರೋಟಾವೇಟರ್, ಹಾರ್ವೆಸ್ಟರ್ ಮತ್ತು ಇತರ ಕೃಷಿ ಯಂತ್ರೋಪಕರಣಗಳನ್ನು ಹುಡುಕಿ, ಯಂತ್ರ ಮಾಲೀಕರೊಂದಿಗೆ ಸಂಪರ್ಕ ಸಾಧಿಸಿ ಅಗತ್ಯವಿದ್ದಾಗ ಬಾಡಿಗೆಗೆ ಪಡೆಯಬಹುದು.',
+      icon: <Tractor className="w-6 h-6 text-[#087A3D]" />,
+      image: '/images/whatwedo_equipment.jpg',
+      pointsEn: [
+        'Discover agricultural machinery',
+        'Connect with nearby equipment owners',
+        'Access or rent equipment',
+        'Find machinery when needed',
+      ],
+      pointsKn: [
+        'ಕೃಷಿ ಯಂತ್ರೋಪಕರಣಗಳ ಶೋಧನೆ',
+        'ಸಮೀಪದ ಉಪಕರಣ ಮಾಲೀಕರೊಂದಿಗೆ ಸಂಪರ್ಕ',
+        'ಉಪಕರಣಗಳ ಸುಲಭ ಪ್ರವೇಶ ಅಥವಾ ಬಾಡಿಗೆ',
+        'ಅಗತ್ಯವಿದ್ದಾಗ ಸಕಾಲಿಕ ಯಾಂತ್ರೀಕರಣದ ಬಳಕೆ',
+      ],
+      imageOnRight: true,
     },
     {
-      id: 'resources',
-      title: t.whatWeDo.card2Title,
-      titleKn: t.whatWeDo.card2Kn,
-      desc: t.whatWeDo.card2Desc,
-      icon: <Sprout className="w-8 h-8 text-[#087A3D]" />,
-      emoji: '🌱',
-      image: 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=1000&q=80',
-      points: isKannada
-        ? [
-            'ಪ್ರಮಾಣೀಕೃತ ಬಿತ್ತನೆ ಬೀಜಗಳು (ರಾಗಿ ಜಿಪಿಯು-೨೮, ಭತ್ತದ ತಳಿಗಳು)',
-            'ಗುಣಮಟ್ಟದ ಸಾವಯವ ಗೊಬ್ಬರ ಮತ್ತು ಮಣ್ಣಿನ ಫಲವತ್ತತೆ ವರ್ಧಕಗಳು',
-            'ನೈಸರ್ಗಿಕ ಕೀಟನಾಶಕಗಳು, ಕಹಿಬೇವಿನ ಸಾರ ಮತ್ತು ಜೈವಿಕ ಪರಿಹಾರಗಳು',
-            'ರೈತ ಉತ್ಪಾದಕ ಸಂಸ್ಥೆಗಳಿಂದ (FPO) ನೈಜ ಪರಿಕರಗಳ ಮಾಹಿತಿ'
-          ]
-        : [
-            'Promoting certified, high-yield seeds tailored for Karnataka soils',
-            'Information on genuine organic compost & bio-fertilizers',
-            'Bio-pesticides and natural crop protection resources',
-            'Direct discovery of inputs from vetted Farmer Producer Organizations'
-          ],
+      id: 'agri-inputs',
+      titleEn: 'Agricultural Inputs & Resources',
+      titleKn: 'ಕೃಷಿ ಇನ್ಪುಟ್ಸ್ ಮತ್ತು ಸಂಪನ್ಮೂಲಗಳು',
+      descEn:
+        'Farmers can discover seeds, fertilizers, pesticides and other agricultural resources needed for cultivation through a connected digital platform.',
+      descKn:
+        'ರೈತರು ಕೃಷಿಗೆ ಅಗತ್ಯವಿರುವ ಬಿತ್ತನೆ ಬೀಜಗಳು, ರಸಗೊಬ್ಬರಗಳು, ಕೀಟನಾಶಕಗಳು ಮತ್ತು ಇತರ ಕೃಷಿ ಸಂಪನ್ಮೂಲಗಳನ್ನು ಸಂಪರ್ಕಿತ ಡಿಜಿಟಲ್ ವೇದಿಕೆಯ ಮೂಲಕ ಅನ್ವೇಷಿಸಬಹುದು.',
+      icon: <Sprout className="w-6 h-6 text-[#087A3D]" />,
+      image: '/images/whatwedo_inputs.jpg',
+      pointsEn: [
+        'Seeds and planting materials',
+        'Fertilizers and crop nutrients',
+        'Crop-protection products',
+        'Other farming supplies',
+      ],
+      pointsKn: [
+        'ಬಿತ್ತನೆ ಬೀಜಗಳು ಮತ್ತು ಸಸಿ ಸಾಮಗ್ರಿಗಳು',
+        'ರಸಗೊಬ್ಬರಗಳು ಮತ್ತು ಬೆಳೆ ಪೋಷಕಾಂಶಗಳು',
+        'ಬೆಳೆ ಸಂರಕ್ಷಣಾ ಉತ್ಪನ್ನಗಳು ಮತ್ತು ಕೀಟನಾಶಕಗಳು',
+        'ಇತರ ಅಗತ್ಯ ಕೃಷಿ ಸಾಮಗ್ರಿಗಳು',
+      ],
+      imageOnRight: false,
     },
     {
-      id: 'people',
-      title: t.whatWeDo.card3Title,
-      titleKn: t.whatWeDo.card3Kn,
-      desc: t.whatWeDo.card3Desc,
-      icon: <Users className="w-8 h-8 text-[#087A3D]" />,
-      emoji: '🤝',
-      image: 'https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=1000&q=80',
-      points: isKannada
-        ? [
-            'ರೈತರು, ಯಂತ್ರ ಮಾಲೀಕರು ಮತ್ತು ಪೂರೈಕೆದಾರರ ನಡುವೆ ವಿಶ್ವಾಸಾರ್ಹ ಸೇತು',
-            'ಗ್ರಾಮೀಣ ಕೃಷಿ ಸಮುದಾಯದ ನಡುವೆ ಪರಸ್ಪರ ಸಹಕಾರ ಮತ್ತು ಗೌರವ',
-            'ಕೃಷಿ ತಜ್ಞರು ಮತ್ತು ಸಂಘಟನೆಗಳೊಂದಿಗೆ ಮಾಹಿತಿ ವಿನಿಮಯ',
-            'ಮಧ್ಯವರ್ತಿಗಳ ಹಾವಳಿಯಿಲ್ಲದ ನೇರ ಸಂವಹನ ವ್ಯವಸ್ಥೆ'
-          ]
-        : [
-            'Building a community of mutual trust between farmers and providers',
-            'Encouraging local resource sharing and equipment pooling',
-            'Collaborating with agricultural universities and field experts',
-            'Fostering transparent rural partnerships across taluks'
-          ],
+      id: 'farmer-connections',
+      titleEn: 'Connecting Farmers & Service Providers',
+      titleKn: 'ರೈತರು ಮತ್ತು ಸೇವಾದಾರರ ಸಂಪರ್ಕ',
+      descEn:
+        'AgriSethu helps farmers discover equipment owners and agricultural service providers, communicate directly, coordinate services and make bookings.',
+      descKn:
+        'ರೈತರು ಉಪಕರಣ ಮಾಲೀಕರು ಮತ್ತು ಕೃಷಿ ಸೇವಾದಾರರನ್ನು ಹುಡುಕಲು, ನೇರವಾಗಿ ಸಂವಹನ ನಡೆಸಲು, ಸೇವೆಗಳನ್ನು ಸಮನ್ವಯಗೊಳಿಸಲು ಮತ್ತು ಬುಕ್ಕಿಂಗ್ ಮಾಡಲು AgriSethu ನೆರವಾಗುತ್ತದೆ.',
+      icon: <Handshake className="w-6 h-6 text-[#087A3D]" />,
+      image: '/images/whatwedo_connections.jpg',
+      pointsEn: [
+        'Connect farmers with equipment owners',
+        'Discover agricultural service providers',
+        'Communicate directly',
+        'Coordinate services and bookings',
+      ],
+      pointsKn: [
+        'ರೈತರನ್ನು ಯಂತ್ರ ಮಾಲೀಕರೊಂದಿಗೆ ಜೋಡಿಸುವುದು',
+        'ಕೃಷಿ ಸೇವಾದಾರರ ನೇರ ಶೋಧನೆ',
+        'ನೇರ ಸಂವಹನ ಮತ್ತು ಮಾಹಿತಿ ವಿನಿಮಯ',
+        'ಸೇವಾ ಸಮನ್ವಯ ಮತ್ತು ಬುಕ್ಕಿಂಗ್ ವ್ಯವಸ್ಥೆ',
+      ],
+      imageOnRight: true,
     },
     {
-      id: 'digital',
-      title: t.whatWeDo.card4Title,
-      titleKn: t.whatWeDo.card4Kn,
-      desc: t.whatWeDo.card4Desc,
-      icon: <Smartphone className="w-8 h-8 text-[#087A3D]" />,
-      emoji: '📱',
-      image: 'https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=1000&q=80',
-      points: isKannada
-        ? [
-            'ಕನ್ನಡದಲ್ಲೇ ಸರಳವಾಗಿ ಬಳಸಬಹುದಾದ ಮೊಬೈಲ್ ಅಪ್ಲಿಕೇಶನ್ ವಿನ್ಯಾಸ',
-            'ಗ್ರಾಮೀಣ ಕಡಿಮೆ ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕವಿರುವ ಜಾಗಗಳಲ್ಲೂ ಸುಲಭ ಬಳಕೆ',
-            'ಹವಾಮಾನ ಮತ್ತು ಋತುಮಾನದ ಕೃಷಿ ಮುನ್ಸೂಚನೆ ಮಾಹಿತಿ',
-            'ಫೋನ್ ಕರೆ ಮತ್ತು ಎಸ್‌ಎಂಎಸ್ ಮೂಲಕವೂ ರೈತರಿಗೆ ಸಹಾಯ'
-          ]
-        : [
-            'Bilingual Kannada-first interface built for easy field use',
-            'Engineered for lightweight performance in rural networks',
-            'Accessible weather, cropping calendar, and seasonal alerts',
-            'Multichannel support including direct phone consultation'
-          ],
+      id: 'agri-inputs-delivery',
+      titleEn: 'Agricultural Inputs & Delivery',
+      titleKn: 'ಕೃಷಿ ಇನ್ಪುಟ್ಸ್ ಮತ್ತು ವಿತರಣೆ',
+      descEn:
+        'Farmers can discover essential agricultural inputs such as fertilizers, pesticides, seeds and farming supplies, place orders and get them delivered to their location.',
+      descKn:
+        'ರೈತರು ರಸಗೊಬ್ಬರ, ಕೀಟನಾಶಕಗಳು, ಬೀಜಗಳು ಮತ್ತು ಇತರ ಕೃಷಿ ಸಾಮಗ್ರಿಗಳನ್ನು ಹುಡುಕಿ, ಆರ್ಡರ್ ಮಾಡಿ ತಮ್ಮ ಸ್ಥಳಕ್ಕೆ ವಿತರಣೆ ಪಡೆಯಬಹುದು.',
+      icon: <Truck className="w-6 h-6 text-[#087A3D]" />,
+      image: '/images/whatwedo_inputs_delivery.jpg',
+      pointsEn: [
+        'Discover agricultural inputs',
+        'Order fertilizers and crop-protection products',
+        'Order seeds and farming supplies',
+        'Get agricultural inputs delivered',
+      ],
+      pointsKn: [
+        'ಕೃಷಿ ಇನ್ಪುಟ್ಸ್‌ಗಳ ಸುಲಭ ಶೋಧನೆ',
+        'ರಸಗೊಬ್ಬರ ಮತ್ತು ಬೆಳೆ ಸಂರಕ್ಷಣಾ ಉತ್ಪನ್ನಗಳ ಆರ್ಡರ್',
+        'ಬೀಜಗಳು ಮತ್ತು ಕೃಷಿ ಪರಿಕರಗಳ ಖರೀದಿ',
+        'ಕೃಷಿ ಸ್ಥಳಕ್ಕೇ ನೇರ ವಿತರಣೆ',
+      ],
+      imageOnRight: false,
     },
   ];
 
   return (
-    <div className="bg-white min-h-screen py-12 sm:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-        {/* Header */}
+    <div className="relative bg-[#FFFDF5] min-h-screen text-[#173C2E] overflow-hidden pb-28 sm:pb-36 lg:pb-44">
+      
+      {/* ========================================================================= */}
+      {/* 1. COMPREHENSIVE ILLUSTRATED KARNATAKA AGRICULTURAL BACKGROUND             */}
+      {/* ========================================================================= */}
+
+      {/* Layer A: Subtle Agricultural Ambient Paper Washes (Never stark white) */}
+      <div 
+        aria-hidden="true" 
+        className="absolute inset-0 pointer-events-none select-none z-0 bg-gradient-to-b from-[#FFFDF5] via-[#F7FCF8]/60 via-[#FFFDF5] to-[#F1F8F3]/70"
+      />
+
+      {/* Layer B: Upper Agricultural Scenery Panorama (Hills, Palms, Paddy, Karnataka Map, Tractor, Farmer) */}
+      {/* Spans across the entire top and extends behind the header & upper cards (16-20% opacity) */}
+      <div className="absolute top-0 left-0 right-0 w-full h-[720px] sm:h-[840px] lg:h-[940px] pointer-events-none select-none z-0 opacity-[0.18] lg:opacity-[0.22] mix-blend-multiply overflow-hidden">
+        <img
+          src="/images/gaps_karnataka_bg_art.jpg"
+          alt="Karnataka agricultural panorama background illustration"
+          aria-hidden="true"
+          className="w-full h-full object-cover object-top"
+        />
+        <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-b from-transparent via-[#FFFDF5]/50 to-[#FFFDF5]" />
+      </div>
+
+      {/* Layer C: Continuous Side Edge Agricultural Line-Art Watermarks (Desktop & Tablet) */}
+      {/* Left Edge Upper-Mid: Coconut Palms & Rural Landscape Accent */}
+      <div className="absolute top-[700px] -left-8 w-56 sm:w-72 lg:w-84 h-[750px] pointer-events-none select-none z-0 opacity-[0.15] lg:opacity-[0.18] mix-blend-multiply overflow-hidden">
+        <img
+          src="/images/gaps_karnataka_bg_art.jpg"
+          alt="Left edge agricultural scenery"
+          aria-hidden="true"
+          className="w-full h-full object-cover object-left"
+        />
+      </div>
+
+      {/* Left Edge Lower-Mid: Rural Paddy & Agricultural Field Accent */}
+      <div className="absolute top-[1450px] -left-8 w-56 sm:w-72 lg:w-84 h-[750px] pointer-events-none select-none z-0 opacity-[0.13] lg:opacity-[0.16] mix-blend-multiply overflow-hidden">
+        <img
+          src="/images/gaps_karnataka_bg_art.jpg"
+          alt="Left edge lower agricultural scenery"
+          aria-hidden="true"
+          className="w-full h-full object-cover object-left"
+        />
+      </div>
+
+      {/* Right Edge Upper-Mid: Karnataka Silhouette & Field Landscape Accent */}
+      <div className="absolute top-[700px] -right-8 w-56 sm:w-72 lg:w-84 h-[750px] pointer-events-none select-none z-0 opacity-[0.15] lg:opacity-[0.18] mix-blend-multiply overflow-hidden">
+        <img
+          src="/images/gaps_karnataka_bg_art.jpg"
+          alt="Right edge agricultural scenery"
+          aria-hidden="true"
+          className="w-full h-full object-cover object-right"
+        />
+      </div>
+
+      {/* Right Edge Lower-Mid: Agricultural Field & Palms Accent */}
+      <div className="absolute top-[1450px] -right-8 w-56 sm:w-72 lg:w-84 h-[750px] pointer-events-none select-none z-0 opacity-[0.13] lg:opacity-[0.16] mix-blend-multiply overflow-hidden">
+        <img
+          src="/images/gaps_karnataka_bg_art.jpg"
+          alt="Right edge lower agricultural scenery"
+          aria-hidden="true"
+          className="w-full h-full object-cover object-right"
+        />
+      </div>
+
+      {/* Layer D: Bottom-Left Vidhana Soudha Architectural Sketch Watermark */}
+      <div className="absolute bottom-16 sm:bottom-20 left-0 sm:left-3 lg:left-6 w-60 sm:w-80 lg:w-96 h-60 sm:h-80 lg:h-96 opacity-[0.20] lg:opacity-[0.25] mix-blend-multiply pointer-events-none select-none z-0 overflow-hidden">
+        <img
+          src="/images/vidhana_soudha_sketch.jpg"
+          alt="Karnataka Vidhana Soudha architectural watermark"
+          aria-hidden="true"
+          className="w-full h-full object-contain object-bottom scale-110"
+        />
+      </div>
+
+      {/* Bottom-Left Golden Paddy Stalk Accent */}
+      <div className="absolute bottom-14 sm:bottom-18 left-0 sm:left-2 w-44 sm:w-60 h-52 sm:h-76 pointer-events-none select-none z-0 opacity-80">
+        <svg viewBox="0 0 160 220" fill="none" className="w-full h-full">
+          <path d="M 0 220 Q 30 140 120 70" stroke="#3E8D4F" strokeWidth="2.5" fill="none" />
+          <path d="M 120 70 Q 145 90 155 130" stroke="#D49A29" strokeWidth="2" fill="none" />
+          <ellipse cx="60" cy="125" rx="6" ry="3.5" transform="rotate(-35 60 125)" fill="#F4C749" stroke="#B88219" strokeWidth="0.8" />
+          <ellipse cx="75" cy="110" rx="7" ry="3.5" transform="rotate(-30 75 110)" fill="#F4C749" stroke="#B88219" strokeWidth="0.8" />
+          <ellipse cx="90" cy="95" rx="7" ry="3.5" transform="rotate(-25 90 95)" fill="#F4C749" stroke="#B88219" strokeWidth="0.8" />
+          <ellipse cx="105" cy="82" rx="7" ry="3.5" transform="rotate(-15 105 82)" fill="#F4C749" stroke="#B88219" strokeWidth="0.8" />
+          <ellipse cx="120" cy="74" rx="7" ry="3.5" transform="rotate(5 120 74)" fill="#F4C749" stroke="#B88219" strokeWidth="0.8" />
+          <ellipse cx="135" cy="78" rx="7" ry="3.5" transform="rotate(30 135 78)" fill="#F4C749" stroke="#B88219" strokeWidth="0.8" />
+          <ellipse cx="145" cy="92" rx="7" ry="3.5" transform="rotate(55 145 92)" fill="#F4C749" stroke="#B88219" strokeWidth="0.8" />
+          <ellipse cx="150" cy="108" rx="6" ry="3.5" transform="rotate(75 150 108)" fill="#F4C749" stroke="#B88219" strokeWidth="0.8" />
+          <ellipse cx="152" cy="124" rx="5" ry="3" transform="rotate(90 152 124)" fill="#F4C749" stroke="#B88219" strokeWidth="0.8" />
+        </svg>
+      </div>
+
+      {/* Layer E: Bottom-Right Karnataka Temple Gopuram Sketch Watermark */}
+      <div className="absolute bottom-16 sm:bottom-20 right-0 sm:right-3 lg:right-6 w-60 sm:w-80 lg:w-96 h-60 sm:h-80 lg:h-96 opacity-[0.20] lg:opacity-[0.25] mix-blend-multiply pointer-events-none select-none z-0 overflow-hidden">
+        <img
+          src="/images/temple_gopuram_sketch.jpg"
+          alt="Karnataka temple gopuram architectural watermark"
+          aria-hidden="true"
+          className="w-full h-full object-contain object-bottom scale-110"
+        />
+      </div>
+
+      {/* Bottom-Right Golden Paddy Stalk Accent (Mirrored) */}
+      <div className="absolute bottom-14 sm:bottom-18 right-0 sm:right-2 w-44 sm:w-60 h-52 sm:h-76 pointer-events-none select-none z-0 opacity-80 transform -scale-x-100">
+        <svg viewBox="0 0 160 220" fill="none" className="w-full h-full">
+          <path d="M 0 220 Q 30 140 120 70" stroke="#3E8D4F" strokeWidth="2.5" fill="none" />
+          <path d="M 120 70 Q 145 90 155 130" stroke="#D49A29" strokeWidth="2" fill="none" />
+          <ellipse cx="60" cy="125" rx="6" ry="3.5" transform="rotate(-35 60 125)" fill="#F4C749" stroke="#B88219" strokeWidth="0.8" />
+          <ellipse cx="75" cy="110" rx="7" ry="3.5" transform="rotate(-30 75 110)" fill="#F4C749" stroke="#B88219" strokeWidth="0.8" />
+          <ellipse cx="90" cy="95" rx="7" ry="3.5" transform="rotate(-25 90 95)" fill="#F4C749" stroke="#B88219" strokeWidth="0.8" />
+          <ellipse cx="105" cy="82" rx="7" ry="3.5" transform="rotate(-15 105 82)" fill="#F4C749" stroke="#B88219" strokeWidth="0.8" />
+          <ellipse cx="120" cy="74" rx="7" ry="3.5" transform="rotate(5 120 74)" fill="#F4C749" stroke="#B88219" strokeWidth="0.8" />
+          <ellipse cx="135" cy="78" rx="7" ry="3.5" transform="rotate(30 135 78)" fill="#F4C749" stroke="#B88219" strokeWidth="0.8" />
+          <ellipse cx="145" cy="92" rx="7" ry="3.5" transform="rotate(55 145 92)" fill="#F4C749" stroke="#B88219" strokeWidth="0.8" />
+          <ellipse cx="150" cy="108" rx="6" ry="3.5" transform="rotate(75 150 108)" fill="#F4C749" stroke="#B88219" strokeWidth="0.8" />
+          <ellipse cx="152" cy="124" rx="5" ry="3" transform="rotate(90 152 124)" fill="#F4C749" stroke="#B88219" strokeWidth="0.8" />
+        </svg>
+      </div>
+
+      {/* ========================================================================= */}
+      {/* 2. MAIN CONTENT CONTAINER                                                 */}
+      {/* ========================================================================= */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14 space-y-12 sm:space-y-16">
+        
+        {/* Header Block */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#087A3D] bg-[#EAF7EC] px-3.5 py-1 rounded-full">
-            {t.whatWeDo.badge}
-          </span>
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-[#17352A] tracking-tight">
-            {t.whatWeDo.title}
+          {/* Small Top Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FEF9E7] border border-[#E8DCB0] text-[#075C38] shadow-2xs">
+            <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#075C38]">
+              OUR CORE SERVICES
+            </span>
+            <span className="text-[#E7B93E] font-black">•</span>
+            <span className="font-kannada font-bold text-xs sm:text-[13px] text-[#075C38]">
+              ನಮ್ಮ ಪ್ರಮುಖ ಸೇವೆಗಳು
+            </span>
+          </div>
+
+          {/* Main Heading */}
+          <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-extrabold text-[#075C38] tracking-tight leading-tight">
+            What We Do
           </h1>
-          <p className="text-base sm:text-lg text-[#63736B] font-medium font-kannada">
-            {t.whatWeDo.subtitle}
+
+          {/* Kannada Subheading */}
+          <h2 className="font-kannada font-extrabold text-xl sm:text-2xl text-[#075C38] leading-tight">
+            ನಾವು ಏನು ಮಾಡುತ್ತೇವೆ
+          </h2>
+
+          {/* Small Gold Decorative Line */}
+          <div className="w-12 h-0.5 bg-[#E7B93E] mx-auto rounded-full mt-2" />
+
+          {/* Centered Description */}
+          <p className="text-base sm:text-[17px] text-[#68776F] leading-relaxed max-w-[760px] mx-auto pt-2 font-normal">
+            AgriSethu is being built to connect farmers with the equipment, agricultural resources, service providers and marketplace services they need through one connected digital platform.
           </p>
         </div>
 
-        {/* Informational Pillars */}
-        <div className="space-y-12">
-          {pillars.map((item, idx) => (
+        {/* 4 Large Alternating Service Cards */}
+        <div className="space-y-10 sm:space-y-12">
+          {pillars.map((item) => (
             <div
               key={item.id}
-              className={`p-6 sm:p-10 rounded-3xl bg-[#F6FBF6] border border-[#DCE8DF] shadow-subtle grid grid-cols-1 lg:grid-cols-12 gap-8 items-center ${
-                idx % 2 === 1 ? 'lg:flex-row-reverse' : ''
+              className={`p-6 sm:p-8 lg:p-10 rounded-[22px] bg-white/92 backdrop-blur-xs border border-[#D8E8DC] shadow-[0_8px_24px_rgba(7,92,56,0.06)] hover:shadow-[0_14px_36px_rgba(7,92,56,0.12)] hover:border-[#087A3D]/40 transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center ${
+                !item.imageOnRight ? 'lg:flex-row-reverse' : ''
               }`}
             >
-              <div className={`lg:col-span-6 space-y-4 ${idx % 2 === 1 ? 'lg:order-2' : ''}`}>
-                <div className="flex items-center gap-2">
-                  <div className="w-12 h-12 rounded-2xl bg-white shadow-xs flex items-center justify-center">
+              {/* Text & Points Column */}
+              <div
+                className={`lg:col-span-6 space-y-4 text-left ${
+                  !item.imageOnRight ? 'lg:order-2' : ''
+                }`}
+              >
+                {/* Icon Container & Titles */}
+                <div className="flex items-start gap-3.5">
+                  <div className="w-12 h-12 rounded-xl bg-[#EAF6ED] border border-[#D5EAD9] flex items-center justify-center flex-shrink-0 text-[#087A3D] mt-0.5">
                     {item.icon}
                   </div>
-                  <span className="text-2xl">{item.emoji}</span>
+                  <div>
+                    <h3 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-[#075C38] leading-snug">
+                      {item.titleEn}
+                    </h3>
+                    <h4 className="text-base sm:text-lg font-semibold text-[#087A3D] font-kannada leading-snug mt-0.5">
+                      {item.titleKn}
+                    </h4>
+                  </div>
                 </div>
 
-                <h2 className="text-2xl sm:text-3xl font-bold text-[#17352A]">
-                  {item.title}
-                </h2>
-                <span className="text-sm font-semibold text-[#087A3D] font-kannada block">
-                  {item.titleKn}
-                </span>
-
-                <p className="text-sm sm:text-base text-[#63736B] leading-relaxed">
-                  {item.desc}
+                <p className="text-sm sm:text-base text-[#68776F] leading-relaxed">
+                  {isKannada ? item.descKn : item.descEn}
                 </p>
 
-                <div className="space-y-2 pt-2">
-                  {item.points.map((pt) => (
-                    <div key={pt} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#17352A]">
-                      <div className="w-4 h-4 rounded-full bg-[#EAF7EC] text-[#087A3D] flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check className="w-3 h-3" />
+                {/* 4 Supporting Points with Green Checks */}
+                <div className="space-y-2 pt-1">
+                  {(isKannada ? item.pointsKn : item.pointsEn).map((pt) => (
+                    <div key={pt} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#173C2E]">
+                      <div className="w-4 h-4 rounded-full bg-[#EAF6ED] text-[#087A3D] flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check className="w-3 h-3 stroke-[3]" />
                       </div>
-                      <span>{pt}</span>
+                      <span className="font-medium">{pt}</span>
                     </div>
                   ))}
                 </div>
 
+                {/* Explore Button */}
                 <div className="pt-3">
                   <Link
                     to="/app"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#087A3D] text-white font-bold text-xs sm:text-sm hover:bg-[#064D2C] transition-colors"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#087A3D] text-white font-bold text-xs sm:text-sm hover:bg-[#064D2C] transition-all shadow-[0_4px_14px_rgba(8,122,61,0.2)] hover:shadow-[0_6px_18px_rgba(8,122,61,0.3)] group cursor-pointer"
                   >
-                    <span>{isKannada ? 'ಆ್ಯಪ್‌ನಲ್ಲಿ ತಿಳಿಯಿರಿ' : 'Explore in App'}</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <span>Explore in App</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </div>
 
-              <div className={`lg:col-span-6 ${idx % 2 === 1 ? 'lg:order-1' : ''}`}>
-                <div className="rounded-3xl overflow-hidden shadow-card border border-[#DCE8DF] h-72 sm:h-80">
+              {/* Image Column */}
+              <div
+                className={`lg:col-span-6 ${
+                  !item.imageOnRight ? 'lg:order-1' : ''
+                }`}
+              >
+                <div className="rounded-[20px] overflow-hidden shadow-xs border border-[#DCE8DF] h-64 sm:h-72 lg:h-80 bg-gray-100">
                   <img
                     src={item.image}
-                    alt={item.title}
+                    alt={item.titleEn}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -180,25 +342,63 @@ export const WhatWeDo: React.FC = () => {
           ))}
         </div>
 
-        {/* Bottom Banner */}
-        <div className="text-center p-8 sm:p-10 rounded-3xl bg-[#FFFDF6] border border-[#DCE8DF] space-y-4 max-w-3xl mx-auto">
-          <ShieldCheck className="w-10 h-10 text-[#087A3D] mx-auto" />
-          <h3 className="text-xl font-bold text-[#17352A]">
-            {isKannada ? 'ಕೃಷಿಕರ ನೈಜ ಸಬಲೀಕರಣವೇ ನಮ್ಮ ಗುರಿ' : 'Dedicated to Farmer Empowerment in Karnataka'}
-          </h3>
-          <p className="text-xs sm:text-sm text-[#63736B] leading-relaxed">
-            {isKannada
-              ? 'AgriSethu ವೆಬ್‌ಸೈಟ್ ಒಂದು ಮಾಹಿತಿ ವೇದಿಕೆಯಾಗಿದೆ. ಎಲ್ಲಾ ನೈಜ ಕೃಷಿ ಸೇವೆಗಳು, ಯಂತ್ರೋಪಕರಣ ಸಂಪರ್ಕ ಮತ್ತು ಬುಕಿಂಗ್ ಸೌಲಭ್ಯಗಳನ್ನು ಭವಿಷ್ಯದಲ್ಲಿ AgriSethu ಮೊಬೈಲ್ ಆ್ಯಪ್ ಮೂಲಕ ಒದಗಿಸಲಾಗುವುದು.'
-              : 'This website is strictly an informational portal. All active equipment scheduling and input services will be operated through the upcoming AgriSethu mobile application.'}
-          </p>
-          <Link
-            to="/app"
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#087A3D] hover:underline"
-          >
-            <span>{isKannada ? 'ಮೊಬೈಲ್ ಆ್ಯಪ್ ಪರಿಚಯ ನೋಡಿ →' : 'Learn About the AgriSethu App →'}</span>
-          </Link>
+        {/* ========================================================================= */}
+        {/* 3. BOTTOM INFORMATION CARD                                                */}
+        {/* ========================================================================= */}
+        <div className="p-6 sm:p-8 lg:p-9 rounded-[22px] bg-[#F2F8F4]/95 backdrop-blur-xs border border-[#D0E5D7] shadow-[0_8px_24px_rgba(7,92,56,0.06)] max-w-4xl mx-auto flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
+          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#E3F2E7] border border-[#CFE8D5] flex items-center justify-center flex-shrink-0 text-[#087A3D]">
+            <Sprout className="w-7 h-7 sm:w-8 sm:h-8" />
+          </div>
+
+          <div className="space-y-1.5 flex-1">
+            <div className="flex items-center gap-2 justify-center sm:justify-start">
+              <div className="w-5 h-5 rounded-md bg-[#EAF6ED] border border-[#D5EAD9] flex items-center justify-center text-[#087A3D]">
+                <Sprout className="w-3 h-3" />
+              </div>
+              <h3 className="text-base sm:text-lg font-extrabold text-[#075C38] tracking-tight">
+                DEDICATED TO FARMER ACCESS IN KARNATAKA
+              </h3>
+            </div>
+            <h4 className="font-kannada font-bold text-sm sm:text-base text-[#087A3D]">
+              ಕರ್ನಾಟಕದ ರೈತರಿಗಾಗಿ ಸಂಪರ್ಕಿತ ಡಿಜಿಟಲ್ ಸೇವೆಗಳು
+            </h4>
+            <p className="text-xs sm:text-[13.5px] text-[#4E6157] leading-relaxed pt-1 font-normal">
+              AgriSethu is being built to connect farmer accounts, agricultural equipment, inputs, service providers, bookings, orders and delivery through one connected digital platform.
+            </p>
+            <p className="font-kannada text-xs sm:text-[13px] text-[#4E6157] leading-relaxed font-medium pt-0.5">
+              ರೈತ ಖಾತೆಗಳು, ಕೃಷಿ ಯಂತ್ರೋಪಕರಣಗಳು, ಇನ್ಪುಟ್ಸ್, ಸೇವಾದಾರರು, ಬುಕ್ಕಿಂಗ್, ಆರ್ಡರ್ ಮತ್ತು ವಿತರಣೆಯನ್ನು ಒಂದೇ ಸಂಪರ್ಕಿತ ಡಿಜಿಟಲ್ ವೇದಿಕೆಯಲ್ಲಿ ತರಲು AgriSethu ನಿರ್ಮಿಸಲಾಗುತ್ತಿದೆ.
+            </p>
+          </div>
         </div>
+
       </div>
+
+      {/* ========================================================================= */}
+      {/* 4. BOTTOM AGRICULTURAL WAVE (Gold Wave + Dark Green Wave)                  */}
+      {/* ========================================================================= */}
+      <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-24 lg:h-28 overflow-hidden pointer-events-none z-10 leading-none">
+        <svg
+          viewBox="0 0 1440 100"
+          preserveAspectRatio="none"
+          className="w-full h-full"
+          fill="none"
+        >
+          {/* Top Thin Agricultural Gold Wave */}
+          <path
+            d="M0,52 C320,82 580,24 920,60 C1160,84 1340,42 1440,46"
+            stroke="#E7B93E"
+            strokeWidth="5"
+            strokeLinecap="round"
+            fill="none"
+          />
+          {/* Bottom Dark Karnataka Green Wave */}
+          <path
+            d="M0,55 C320,85 580,27 920,63 C1160,87 1340,45 1440,49 L1440,100 L0,100 Z"
+            fill="#087A3D"
+          />
+        </svg>
+      </div>
+
     </div>
   );
 };
