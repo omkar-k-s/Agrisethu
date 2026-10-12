@@ -10,8 +10,8 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({ variant = 'light', classNa
   const isDarkBg = variant === 'dark';
 
   return (
-    <Link to="/" className={`group inline-flex items-center gap-2.5 transition-transform duration-200 hover:scale-[1.01] ${className}`} aria-label="AgriSethu Home">
-      {/* Custom AgriSethu Emblem: Bridge Arch + Sprout */}
+    <Link to="/" className={`group inline-flex items-center gap-2.5 transition-transform duration-200 hover:scale-[1.01] ${className}`} aria-label="RaithaSetu Home">
+      {/* Custom RaithaSetu Emblem: Bridge Arch + Sprout */}
       <div className="relative flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-[#087A3D] shadow-sm transition-all duration-300 group-hover:bg-[#064D2C]">
         <svg viewBox="0 0 40 40" fill="none" className="h-7 w-7" xmlns="http://www.w3.org/2000/svg">
           {/* Bridge Arch */}
@@ -47,7 +47,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({ variant = 'light', classNa
 
       <div className="flex flex-col">
         <span className={`text-xl font-bold tracking-tight leading-none ${isDarkBg ? 'text-white' : 'text-[#087A3D]'}`}>
-          Agri<span className={isDarkBg ? 'text-[#F4C95D]' : 'text-[#064D2C]'}>Sethu</span>
+          Raitha<span className={isDarkBg ? 'text-[#F4C95D]' : 'text-[#064D2C]'}>Setu</span>
         </span>
         <span className={`text-[10px] font-medium tracking-wide mt-1 uppercase ${isDarkBg ? 'text-emerald-200/80' : 'text-[#61706A]'}`}>
           AgriTech Bridge • ಕರ್ನಾಟಕ

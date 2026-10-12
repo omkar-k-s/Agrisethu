@@ -17,6 +17,7 @@ import {
   Network,
   CheckCircle2,
 } from 'lucide-react';
+import { KarnatakaMapSilhouette } from '../components/common/KarnatakaMapSilhouette';
 
 export const About: React.FC = () => {
   useEffect(() => {
@@ -137,22 +138,17 @@ export const About: React.FC = () => {
                 {/* Upper-Left: Elegant Subtle Karnataka State Map Silhouette Overlay */}
                 <div className="absolute top-4 left-4 sm:top-5 sm:left-5 z-10 w-28 sm:w-32">
                   <div className="relative w-full">
-                    <svg
-                      viewBox="0 0 320 500"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-full h-auto drop-shadow-[0_4px_12px_rgba(4,51,28,0.22)]"
-                    >
-                      <path
-                        d="M 202 24 C 185 38, 155 58, 132 74 C 108 90, 78 88, 54 98 C 40 105, 34 122, 33 140 C 31 162, 32 188, 35 212 C 38 238, 44 266, 48 290 C 52 312, 57 334, 62 354 C 66 372, 70 388, 76 400 C 84 414, 102 426, 120 436 C 134 444, 142 458, 146 474 C 152 478, 162 470, 172 456 C 184 440, 198 428, 214 420 C 230 412, 248 412, 260 406 C 264 402, 260 388, 252 374 C 244 358, 234 346, 230 334 C 222 314, 206 294, 204 278 C 202 268, 214 262, 232 258 C 248 254, 258 244, 262 230 C 268 210, 270 190, 266 172 C 260 150, 246 136, 238 118 C 230 100, 226 76, 222 52 C 220 38, 214 26, 202 24 Z"
-                        fill="#FFFDF0"
-                        fillOpacity="0.96"
-                        stroke="#74C38B"
-                        strokeWidth="3.5"
-                        strokeLinejoin="round"
-                        strokeLinecap="round"
-                      />
-                    </svg>
+                  <KarnatakaMapSilhouette
+                    className="w-full h-auto drop-shadow-[0_6px_16px_rgba(4,51,28,0.22)]"
+                    fillColor="#FFFDF0"
+                    strokeColor="#2E9E52"
+                    strokeWidth={2.4}
+                    showMarkers={false}
+                    showRivers={false}
+                    showElevation={false}
+                    showTexture={false}
+                    showGlow={false}
+                  />
 
                     {/* Centered Typography inside Karnataka Map */}
                     <div className="absolute inset-0 flex flex-col items-center justify-center pt-2 text-center pointer-events-none select-none">
@@ -217,7 +213,7 @@ export const About: React.FC = () => {
                 </div>
                 <div className="text-left">
                   <div className="font-bold text-xs sm:text-sm text-[#075C38] leading-tight">
-                    Agri + Sethu = AgriSethu
+                    Raitha + Setu = RaithaSetu
                   </div>
                   <div className="text-[10px] sm:text-[11px] text-[#65766F] leading-snug mt-0.5">
                     A bridge connecting farmers with resources, services and opportunities.
@@ -230,10 +226,10 @@ export const About: React.FC = () => {
             {/* RIGHT COLUMN: Official Narrative, Pillars & Information Notice */}
             <div className="lg:col-span-7 space-y-5 lg:space-y-6 text-left order-1 lg:order-2">
               
-              {/* Top Badge: ABOUT AGRISETHU • ನಮ್ಮ ಬಗ್ಗೆ */}
+              {/* Top Badge: ABOUT RAITHASETU • ನಮ್ಮ ಬಗ್ಗೆ */}
               <div>
                 <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#075C38] bg-[#EAF6ED] border border-[#CDE5D2] px-3.5 py-1 rounded-full shadow-2xs">
-                  <span>ABOUT AGRISETHU</span>
+                  <span>ABOUT RAITHASETU</span>
                   <span className="text-[#087A3D] font-black">•</span>
                   <span className="font-kannada font-bold text-xs">ನಮ್ಮ ಬಗ್ಗೆ</span>
                 </span>
@@ -242,21 +238,21 @@ export const About: React.FC = () => {
               {/* Headings */}
               <div>
                 <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-extrabold text-[#075C38] tracking-tight leading-[1.15]">
-                  About AgriSethu
+                  About RaithaSetu
                 </h1>
                 <h2 className="font-kannada font-extrabold text-xl sm:text-2xl text-[#075C38] mt-1.5 leading-snug">
-                  ಅಗ್ರಿಸೇತು ಬಗ್ಗೆ
+                  RaithaSetu ಬಗ್ಗೆ
                 </h2>
               </div>
 
               {/* Main Description */}
               <p className="text-lg sm:text-[21px] lg:text-[22px] font-bold text-[#075C38] leading-[1.45]">
-                AgriSethu is an agriculture-focused digital platform designed to connect farmers with agricultural resources, equipment, service providers, marketplace opportunities and essential digital services.
+                RaithaSetu is an agriculture-focused digital platform designed to connect farmers with agricultural resources, equipment, service providers, marketplace opportunities and essential digital services.
               </p>
 
               {/* Second Paragraph */}
               <p className="text-base sm:text-[17px] text-[#65766F] leading-relaxed">
-                Through the AgriSethu mobile application, farmers can discover agricultural equipment, connect with equipment owners and service providers, explore agricultural inputs and resources, make bookings, access marketplace services, and manage orders and delivery.
+                Through the RaithaSetu mobile application, farmers can discover agricultural equipment, connect with equipment owners and service providers, explore agricultural inputs and resources, make bookings, access marketplace services, and manage orders and delivery.
               </p>
 
               {/* Purpose & Approach Cards (2 Columns) */}
@@ -307,7 +303,7 @@ export const About: React.FC = () => {
                   <ShieldCheck className="w-4.5 h-4.5" />
                 </div>
                 <p className="text-xs sm:text-[13px] text-[#92400E] font-medium leading-relaxed">
-                  An informational platform introducing the AgriSethu mobile application and the agricultural ecosystem it is being built to connect.
+                  An informational platform introducing the RaithaSetu mobile application and the agricultural ecosystem it is being built to connect.
                 </p>
               </div>
 
@@ -364,7 +360,7 @@ export const About: React.FC = () => {
                   </p>
                 </div>
                 <div className="pt-3 mt-4 border-t border-[#F0F5F2] flex items-center text-[11px] font-semibold text-[#087A3D]">
-                  <span>AgriSethu Ecosystem</span>
+                  <span>RaithaSetu Ecosystem</span>
                 </div>
               </div>
             ))}
@@ -395,7 +391,7 @@ export const About: React.FC = () => {
             </div>
 
             <p className="text-base sm:text-lg text-[#163C2E] font-semibold text-center leading-relaxed mb-8 max-w-3xl mx-auto">
-              "AgriSethu is being built to reduce the difficulty farmers face when searching for agricultural equipment, resources and trusted service connections."
+              "RaithaSetu is being built to reduce the difficulty farmers face when searching for agricultural equipment, resources and trusted service connections."
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-4 border-t border-[#EAF2EC]">
@@ -503,7 +499,7 @@ export const About: React.FC = () => {
                   Technology Rooted in Empathy
                 </h3>
                 <p className="text-xs sm:text-sm text-[#687A72] leading-relaxed">
-                  Every workflow in AgriSethu is mapped directly against the real ground challenges faced by Karnataka's agricultural families.
+                  Every workflow in RaithaSetu is mapped directly against the real ground challenges faced by Karnataka's agricultural families.
                 </p>
                 <div className="pt-2 border-t border-[#EAF2EC] text-[11px] font-bold text-[#80613D] uppercase tracking-wider">
                   AgriTech Initiative • ಕರ್ನಾಟಕ ಕೃಷಿ
@@ -516,16 +512,16 @@ export const About: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 5. WHY AGRISETHU SECTION (Four Clean Information Blocks)                  */}
+      {/* 5. WHY RAITHASETU SECTION (Four Clean Information Blocks)                  */}
       {/* ========================================================================= */}
       <section className="py-16 sm:py-20 lg:py-22 bg-[#FFFDF7] relative">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
           
           <div className="max-w-2xl mx-auto mb-12 sm:mb-14">
             <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#075C38] bg-[#EAF6ED] border border-[#CDE5D2] px-3.5 py-1 rounded-full shadow-2xs mb-3">
-              <span>WHY AGRISETHU</span>
+              <span>WHY RAITHASETU</span>
               <span className="text-[#087A3D]">•</span>
-              <span className="font-kannada font-bold text-xs">ಏಕೆ ಅಗ್ರಿಸೇತು</span>
+              <span className="font-kannada font-bold text-xs">ಏಕೆ RaithaSetu</span>
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#075C38] tracking-tight">
               Guided by the Real Needs of Farmers

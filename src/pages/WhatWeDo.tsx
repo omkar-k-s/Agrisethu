@@ -64,9 +64,9 @@ export const WhatWeDo: React.FC = () => {
       titleEn: 'Connecting Farmers & Service Providers',
       titleKn: 'ರೈತರು ಮತ್ತು ಸೇವಾದಾರರ ಸಂಪರ್ಕ',
       descEn:
-        'AgriSethu helps farmers discover equipment owners and agricultural service providers, communicate directly, coordinate services and make bookings.',
+        'RaithaSetu helps farmers discover equipment owners and agricultural service providers, communicate directly, coordinate services and make bookings.',
       descKn:
-        'ರೈತರು ಉಪಕರಣ ಮಾಲೀಕರು ಮತ್ತು ಕೃಷಿ ಸೇವಾದಾರರನ್ನು ಹುಡುಕಲು, ನೇರವಾಗಿ ಸಂವಹನ ನಡೆಸಲು, ಸೇವೆಗಳನ್ನು ಸಮನ್ವಯಗೊಳಿಸಲು ಮತ್ತು ಬುಕ್ಕಿಂಗ್ ಮಾಡಲು AgriSethu ನೆರವಾಗುತ್ತದೆ.',
+        'ರೈತರು ಉಪಕರಣ ಮಾಲೀಕರು ಮತ್ತು ಕೃಷಿ ಸೇವಾದಾರರನ್ನು ಹುಡುಕಲು, ನೇರವಾಗಿ ಸಂವಹನ ನಡೆಸಲು, ಸೇವೆಗಳನ್ನು ಸಮನ್ವಯಗೊಳಿಸಲು ಮತ್ತು ಬುಕ್ಕಿಂಗ್ ಮಾಡಲು RaithaSetu ನೆರವಾಗುತ್ತದೆ.',
       icon: <Handshake className="w-6 h-6 text-[#087A3D]" />,
       image: '/images/whatwedo_connections.jpg',
       pointsEn: [
@@ -262,7 +262,7 @@ export const WhatWeDo: React.FC = () => {
 
           {/* Centered Description */}
           <p className="text-base sm:text-[17px] text-[#68776F] leading-relaxed max-w-[760px] mx-auto pt-2 font-normal">
-            AgriSethu is being built to connect farmers with the equipment, agricultural resources, service providers and marketplace services they need through one connected digital platform.
+            RaithaSetu is being built to connect farmers with the equipment, agricultural resources, service providers and marketplace services they need through one connected digital platform.
           </p>
         </div>
 
@@ -363,10 +363,10 @@ export const WhatWeDo: React.FC = () => {
               ಕರ್ನಾಟಕದ ರೈತರಿಗಾಗಿ ಸಂಪರ್ಕಿತ ಡಿಜಿಟಲ್ ಸೇವೆಗಳು
             </h4>
             <p className="text-xs sm:text-[13.5px] text-[#4E6157] leading-relaxed pt-1 font-normal">
-              AgriSethu is being built to connect farmer accounts, agricultural equipment, inputs, service providers, bookings, orders and delivery through one connected digital platform.
+              RaithaSetu is being built to connect farmer accounts, agricultural equipment, inputs, service providers, bookings, orders and delivery through one connected digital platform.
             </p>
             <p className="font-kannada text-xs sm:text-[13px] text-[#4E6157] leading-relaxed font-medium pt-0.5">
-              ರೈತ ಖಾತೆಗಳು, ಕೃಷಿ ಯಂತ್ರೋಪಕರಣಗಳು, ಇನ್ಪುಟ್ಸ್, ಸೇವಾದಾರರು, ಬುಕ್ಕಿಂಗ್, ಆರ್ಡರ್ ಮತ್ತು ವಿತರಣೆಯನ್ನು ಒಂದೇ ಸಂಪರ್ಕಿತ ಡಿಜಿಟಲ್ ವೇದಿಕೆಯಲ್ಲಿ ತರಲು AgriSethu ನಿರ್ಮಿಸಲಾಗುತ್ತಿದೆ.
+              ರೈತ ಖಾತೆಗಳು, ಕೃಷಿ ಯಂತ್ರೋಪಕರಣಗಳು, ಇನ್ಪುಟ್ಸ್, ಸೇವಾದಾರರು, ಬುಕ್ಕಿಂಗ್, ಆರ್ಡರ್ ಮತ್ತು ವಿತರಣೆಯನ್ನು ಒಂದೇ ಸಂಪರ್ಕಿತ ಡಿಜಿಟಲ್ ವೇದಿಕೆಯಲ್ಲಿ ತರಲು RaithaSetu ನಿರ್ಮಿಸಲಾಗುತ್ತಿದೆ.
             </p>
           </div>
         </div>

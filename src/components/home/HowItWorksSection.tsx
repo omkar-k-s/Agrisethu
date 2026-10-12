@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 
 /* ============================================================
-   HOW AGRISETHU WORKS — Full Karnataka Agriculture Portal
+   HOW RAITHASETU WORKS — Full Karnataka Agriculture Portal
    Reference-faithful: 5 image cards · dual-path panels ·
    farmer journey examples · gold+green wave bottom
    ============================================================ */
@@ -106,9 +106,9 @@ const STEPS = [
     titleEn: 'Create Your Farmer Account',
     titleKn: 'ನಿಮ್ಮ ರೈತ ಖಾತೆ ರಚಿಸಿ',
     descEn:
-      'Farmers create an account and provide basic information to access relevant AgriSethu services.',
+      'Farmers create an account and provide basic information to access relevant RaithaSetu services.',
     descKn:
-      'ರೈತರು ಖಾತೆಯನ್ನು ರಚಿಸಿ ಮೂಲ ಮಾಹಿತಿಯನ್ನು ಒದಗಿಸುವ ಮೂಲಕ ಸಂಬಂಧಿತ AgriSethu ಸೇವೆಗಳನ್ನು ಪ್ರವೇಶಿಸಬಹುದು.',
+      'ರೈತರು ಖಾತೆಯನ್ನು ರಚಿಸಿ ಮೂಲ ಮಾಹಿತಿಯನ್ನು ಒದಗಿಸುವ ಮೂಲಕ ಸಂಬಂಧಿತ RaithaSetu ಸೇವೆಗಳನ್ನು ಪ್ರವೇಶಿಸಬಹುದು.',
     ticks: [],
     dual: false,
     btn: 'Get Started',
@@ -252,10 +252,10 @@ export const HowItWorksSection: React.FC = () => {
 
           {/* Main heading */}
           <h2 className="text-3xl sm:text-4xl lg:text-[2.85rem] font-extrabold text-[#075C38] tracking-tight leading-tight">
-            How AgriSethu Works
+            How RaithaSetu Works
           </h2>
           <p className="text-base sm:text-lg font-bold text-[#087A3D] font-kannada leading-snug">
-            AgriSethu ಹೇಗೆ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ
+            RaithaSetu ಹೇಗೆ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ
           </p>
 
           {/* Gold ornament */}
@@ -528,7 +528,7 @@ export const HowItWorksSection: React.FC = () => {
               <div className="flex items-center gap-1.5 flex-wrap">
                 {[
                   { l: 'Farmer Need', lk: 'ರೈತರ ಅಗತ್ಯ', h: true },
-                  { l: 'AgriSethu App', lk: 'AgriSethu ಆ್ಯಪ್' },
+                  { l: 'RaithaSetu App', lk: 'RaithaSetu ಆ್ಯಪ್' },
                   { l: 'Find Equipment', lk: 'ಯಂತ್ರ ಹುಡುಕಿ' },
                   { l: 'Connect with Owner', lk: 'ಮಾಲೀಕರ ಸಂಪರ್ಕ' },
                   { l: 'Book', lk: 'ಬುಕ್ ಮಾಡಿ' },
@@ -556,7 +556,7 @@ export const HowItWorksSection: React.FC = () => {
               <div className="flex items-center gap-1.5 flex-wrap">
                 {[
                   { l: 'Farmer Need', lk: 'ರೈತರ ಅಗತ್ಯ', h: true },
-                  { l: 'AgriSethu App', lk: 'AgriSethu ಆ್ಯಪ್' },
+                  { l: 'RaithaSetu App', lk: 'RaithaSetu ಆ್ಯಪ್' },
                   { l: 'Find Input', lk: 'ಇನ್ಪುಟ್ ಹುಡುಕಿ' },
                   { l: 'Order', lk: 'ಆರ್ಡರ್ ಮಾಡಿ' },
                   { l: 'Delivery', lk: 'ವಿತರಣೆ' },
@@ -604,10 +604,10 @@ export const HowItWorksSection: React.FC = () => {
             {/* Right: description */}
             <div className="space-y-2">
               <p className="text-sm text-[#4A6659] leading-relaxed">
-                From discovering agricultural equipment and connecting with service providers to ordering agricultural inputs and receiving deliveries, AgriSethu is being built around the everyday needs of farmers.
+                From discovering agricultural equipment and connecting with service providers to ordering agricultural inputs and receiving deliveries, RaithaSetu is being built around the everyday needs of farmers.
               </p>
               <p className="text-xs font-kannada text-[#68776F] leading-relaxed">
-                ಕೃಷಿ ಯಂತ್ರೋಪಕರಣಗಳನ್ನು ಹುಡುಕುವುದರಿಂದ ಹಿಡಿದು ಸೇವಾದಾರರೊಂದಿಗೆ ಸಂಪರ್ಕಿಸುವುದು, ಕೃಷಿ ಇನ್ಪುಟ್ಸ್ ಆರ್ಡರ್ ಮಾಡುವುದು ಮತ್ತು ವಿತರಣೆ ಪಡೆಯುವವರೆಗೆ, ರೈತರ ದೈನಂದಿನ ಅಗತ್ಯಗಳನ್ನು ಗಮನದಲ್ಲಿಟ್ಟುಕೊಂಡು AgriSethu ನಿರ್ಮಿಸಲಾಗುತ್ತಿದೆ.
+                ಕೃಷಿ ಯಂತ್ರೋಪಕರಣಗಳನ್ನು ಹುಡುಕುವುದರಿಂದ ಹಿಡಿದು ಸೇವಾದಾರರೊಂದಿಗೆ ಸಂಪರ್ಕಿಸುವುದು, ಕೃಷಿ ಇನ್ಪುಟ್ಸ್ ಆರ್ಡರ್ ಮಾಡುವುದು ಮತ್ತು ವಿತರಣೆ ಪಡೆಯುವವರೆಗೆ, ರೈತರ ದೈನಂದಿನ ಅಗತ್ಯಗಳನ್ನು ಗಮನದಲ್ಲಿಟ್ಟುಕೊಂಡು RaithaSetu ನಿರ್ಮಿಸಲಾಗುತ್ತಿದೆ.
               </p>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#B0D9BC] bg-white shadow-sm">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#087A3D] animate-pulse" />

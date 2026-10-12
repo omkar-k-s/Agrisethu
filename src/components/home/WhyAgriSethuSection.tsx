@@ -2,7 +2,7 @@ import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import { Heart, Compass, Cpu, Users } from 'lucide-react';
 
-export const WhyAgriSethuSection: React.FC = () => {
+export const WhyRaithaSetuSection: React.FC = () => {
   const { t, isKannada } = useLanguage();
 
   const principles = [
@@ -82,3 +82,5 @@ export const WhyAgriSethuSection: React.FC = () => {
     </section>
   );
 };
+
+export const WhyAgriSethuSection = WhyRaithaSetuSection;

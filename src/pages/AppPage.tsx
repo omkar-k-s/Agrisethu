@@ -29,7 +29,7 @@ export const AppPage: React.FC = () => {
         </p>
       </div>
 
-      {/* Main Two-Card Karnataka & AgriSethu Mobile App Section */}
+      {/* Main Two-Card Karnataka & RaithaSetu Mobile App Section */}
       <div className="-mt-4 sm:-mt-6">
         <KarnatakaAppSection />
       </div>
@@ -104,8 +104,8 @@ export const AppPage: React.FC = () => {
             </div>
             <h3 className="text-lg sm:text-xl font-bold text-[#17352A]">
               {isKannada
-                ? 'ನಿಮ್ಮ ತಾಲೂಕಿನಲ್ಲಿ ಅಗ್ರಿಸೇತು ಮೊಬೈಲ್ ಆ್ಯಪ್ ಪೈಲಟ್ ಆರಂಭಿಸಲು ಇಚ್ಛಿಸುವಿರಾ?'
-                : 'Interested in pilot testing AgriSethu in your taluk or village?'}
+                ? 'ನಿಮ್ಮ ತಾಲೂಕಿನಲ್ಲಿ RaithaSetu ಮೊಬೈಲ್ ಆ್ಯಪ್ ಪೈಲಟ್ ಆರಂಭಿಸಲು ಇಚ್ಛಿಸುವಿರಾ?'
+                : 'Interested in pilot testing RaithaSetu in your taluk or village?'}
             </h3>
             <p className="text-xs sm:text-sm text-[#63736B]">
               {t.app.pilotTesting}

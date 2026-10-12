@@ -52,7 +52,7 @@ export const ProblemSection: React.FC = () => {
       icon: <ShoppingCart className="w-6 h-6" />,
       titleEn: 'Fragmented Marketplace & Delivery',
       titleKn: 'ಚದುರಿದ ಮಾರುಕಟ್ಟೆ ಮತ್ತು ವಿತರಣಾ ವ್ಯವಸ್ಥೆ',
-      desc: 'Farmers may use different channels to discover agricultural products, place orders and arrange delivery. AgriSethu aims to bring these activities into a more connected digital ecosystem.',
+      desc: 'Farmers may use different channels to discover agricultural products, place orders and arrange delivery. RaithaSetu aims to bring these activities into a more connected digital ecosystem.',
       category: 'Marketplace & Delivery',
       categoryIcon: <ShoppingCart className="w-3.5 h-3.5" />,
     },
@@ -274,10 +274,10 @@ export const ProblemSection: React.FC = () => {
           </div>
           <div className="flex flex-col space-y-1">
             <p className="text-sm sm:text-base font-bold text-[#075C38] leading-snug">
-              AgriSethu is being built to bridge these gaps through easier access, trusted connections and a connected digital agricultural ecosystem.
+              RaithaSetu is being built to bridge these gaps through easier access, trusted connections and a connected digital agricultural ecosystem.
             </p>
             <p className="font-kannada text-xs sm:text-[13px] text-[#075C38]/85 font-semibold leading-relaxed">
-              ಸುಲಭ ಪ್ರವೇಶ, ವಿಶ್ವಾಸಾರ್ಹ ಸಂಪರ್ಕ ಮತ್ತು ಸಂಪರ್ಕಿತ ಡಿಜಿಟಲ್ ಕೃಷಿ ಪರಿಸರದ ಮೂಲಕ ಈ ಅಂತರಗಳನ್ನು ಕಡಿಮೆ ಮಾಡಲು AgriSethu ನಿರ್ಮಿಸಲಾಗುತ್ತಿದೆ.
+              ಸುಲಭ ಪ್ರವೇಶ, ವಿಶ್ವಾಸಾರ್ಹ ಸಂಪರ್ಕ ಮತ್ತು ಸಂಪರ್ಕಿತ ಡಿಜಿಟಲ್ ಕೃಷಿ ಪರಿಸರದ ಮೂಲಕ ಈ ಅಂತರಗಳನ್ನು ಕಡಿಮೆ ಮಾಡಲು RaithaSetu ನಿರ್ಮಿಸಲಾಗುತ್ತಿದೆ.
             </p>
           </div>
         </div>

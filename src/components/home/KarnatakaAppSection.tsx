@@ -63,7 +63,7 @@ export const KarnatakaAppSection: React.FC = () => {
         </div>
 
         {/* ========================================================================= */}
-        {/* CARD 2 — AGRISETHU MOBILE APP (Download, Stores, QR & Phone Mockup)       */}
+        {/* CARD 2 — RAITHASETU MOBILE APP (Download, Stores, QR & Phone Mockup)       */}
         {/* ========================================================================= */}
         <div className="relative mt-6 sm:mt-8 rounded-[24px] sm:rounded-[28px] overflow-visible border border-[#DCE8DF] bg-gradient-to-r from-[#F3F9F4] via-[#F7FAF7] to-[#EEF6F0] shadow-[0_12px_36px_-6px_rgba(8,122,61,0.08)]">
           {/* Subtle realistic field background texture */}
@@ -87,7 +87,7 @@ export const KarnatakaAppSection: React.FC = () => {
                   <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#17352A] tracking-tight leading-[1.12]">
                     Download
                     <br />
-                    AgriSethu App
+                    RaithaSetu App
                   </h3>
 
                   <p className="text-xl sm:text-2xl font-bold text-[#064D2C] font-kannada mt-3 sm:mt-4 leading-snug">
@@ -109,7 +109,7 @@ export const KarnatakaAppSection: React.FC = () => {
                       {/* Google Play Button */}
                       <div
                         className="group relative flex items-center gap-3.5 bg-black text-white px-4 sm:px-5 py-2.5 rounded-xl border border-neutral-800 shadow-md transition-all hover:bg-neutral-900 cursor-pointer select-none"
-                        title="AgriSethu Android App — Launching on Google Play"
+                        title="RaithaSetu Android App — Launching on Google Play"
                       >
                         {/* Official Google Play 4-Color Triangle */}
                         <svg className="w-6 h-6 flex-shrink-0" viewBox="0 0 24 24">
@@ -148,7 +148,7 @@ export const KarnatakaAppSection: React.FC = () => {
                       {/* App Store Button */}
                       <div
                         className="group relative flex items-center gap-3.5 bg-black text-white px-4 sm:px-5 py-2.5 rounded-xl border border-neutral-800 shadow-md transition-all hover:bg-neutral-900 cursor-pointer select-none"
-                        title="AgriSethu iOS App — Launching on Apple App Store"
+                        title="RaithaSetu iOS App — Launching on Apple App Store"
                       >
                         {/* Official Apple Logo SVG */}
                         <svg className="w-6 h-6 flex-shrink-0 fill-current text-white" viewBox="0 0 24 24">
@@ -281,7 +281,7 @@ export const KarnatakaAppSection: React.FC = () => {
                       <div className="px-3.5 pt-1.5 pb-2 flex items-center justify-between bg-white border-b border-neutral-100">
                         <ChevronLeft className="w-5 h-5 text-neutral-600" />
                         
-                        {/* AgriSethu App Brand Logo */}
+                        {/* RaithaSetu App Brand Logo */}
                         <div className="flex flex-col items-center">
                           <div className="flex items-center gap-1.5">
                             {/* Sprout Logo */}
@@ -290,7 +290,7 @@ export const KarnatakaAppSection: React.FC = () => {
                               <path d="M12 14c-1.5 0-3-1.2-3-3 0-2 2-5 3-7 1 2 3 5 3 7 0 1.8-1.5 3-3 3z" fill="#E8B83F" />
                             </svg>
                             <span className="font-extrabold text-sm tracking-tight text-[#087A3D]">
-                              Agri<span className="text-[#E8B83F]">Sethu</span>
+                              Raitha<span className="text-[#E8B83F]">Setu</span>
                             </span>
                           </div>
                           <span className="text-[7.5px] text-[#63736B] font-medium tracking-tight">
@@ -306,7 +306,7 @@ export const KarnatakaAppSection: React.FC = () => {
                         <div className="rounded-xl overflow-hidden shadow-xs border border-neutral-100 relative h-28">
                           <img
                             src="/images/app_tractor_banner.jpg"
-                            alt="AgriSethu Tractor Service"
+                            alt="RaithaSetu Tractor Service"
                             className="w-full h-full object-cover"
                           />
                         </div>

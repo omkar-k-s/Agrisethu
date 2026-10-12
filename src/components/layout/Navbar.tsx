@@ -118,6 +118,7 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center gap-2 font-medium truncate">
             <MapPin className="w-3.5 h-3.5 text-emerald-200 flex-shrink-0" />
             <span className="font-kannada font-semibold text-white truncate">
+
               ಕರ್ನಾಟಕದ ರೈತರಿಗಾಗಿ ಒಂದು ಡಿಜಿಟಲ್ ಸೇತು
             </span>
             <span className="text-emerald-300/60 hidden md:inline">|</span>
@@ -227,14 +228,14 @@ export const Navbar: React.FC = () => {
         {/* Brand Container */}
         <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-3.5 sm:py-5 flex items-center justify-between gap-4">
           
-          {/* Left: AgriSethu Emblem + Brand Name + Institutional Tagline */}
+          {/* Left: RaithaSetu Emblem + Brand Name + Institutional Tagline */}
           <div className="flex items-center gap-4 sm:gap-6">
             
             {/* Clickable Main Brand Logo */}
             <NavLink
               to="/"
               className="flex items-center gap-3 group focus:outline-none"
-              aria-label="AgriSethu Home"
+              aria-label="RaithaSetu Home"
             >
               {/* Sprout & Bridge Icon Emblem matching reference */}
               <div className="relative flex h-12 w-12 sm:h-14 sm:w-14 flex-shrink-0 items-center justify-center">
@@ -290,7 +291,7 @@ export const Navbar: React.FC = () => {
               <div className="flex flex-col">
                 <div className="flex items-baseline leading-none">
                   <span className="text-2xl sm:text-3xl font-extrabold text-[#087A3D] tracking-tight">
-                    Agri<span className="text-[#064D2C]">Sethu</span>
+                    Raitha<span className="text-[#064D2C]">Setu</span>
                   </span>
                 </div>
                 <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.14em] text-[#17352A] uppercase mt-1">
@@ -465,7 +466,7 @@ export const Navbar: React.FC = () => {
           <NavLink
             to="/"
             className="flex items-center gap-2.5 group focus:outline-none"
-            aria-label="AgriSethu Home"
+            aria-label="RaithaSetu Home"
           >
             <div className="relative flex h-8 w-8 flex-shrink-0 items-center justify-center">
               <svg viewBox="0 0 48 48" fill="none" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -480,7 +481,7 @@ export const Navbar: React.FC = () => {
             </div>
             <div className="flex flex-col">
               <span className="text-lg font-extrabold text-[#087A3D] tracking-tight leading-none">
-                Agri<span className="text-[#064D2C]">Sethu</span>
+                Raitha<span className="text-[#064D2C]">Setu</span>
               </span>
               <span className="text-[9px] font-bold tracking-wider text-[#17352A] uppercase leading-none mt-0.5">
                 ಕರ್ನಾಟಕ ರೈತ

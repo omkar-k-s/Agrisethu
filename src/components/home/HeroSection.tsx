@@ -91,7 +91,7 @@ export const HeroSection: React.FC = () => {
             <div>
               <h1 className="font-kannada font-black tracking-tight leading-[1.04] text-left">
                 <span className="block text-4xl sm:text-5xl lg:text-[60px] xl:text-[64px] text-[#005A3C] drop-shadow-xs">
-                  ಕರ್ನಾಟಕದ ರೈತರಿಂದ
+                  ಕರ್ನಾಟಕದ ರೈತರಿಗಾಗಿ
                 </span>
                 <span className="block text-4xl sm:text-5xl lg:text-[60px] xl:text-[64px] text-[#E87922] mt-1 drop-shadow-xs">
                   ಡಿಜಿಟಲ್ ಸೇತು
@@ -121,7 +121,7 @@ export const HeroSection: React.FC = () => {
                 to="/about"
                 className="h-12 sm:h-13 px-7 rounded-xl bg-[#005A3C] hover:bg-[#064D2C] text-white font-bold text-sm sm:text-base shadow-[0_4px_16px_rgba(0,90,60,0.28)] hover:shadow-[0_6px_22px_rgba(0,90,60,0.38)] hover:-translate-y-0.5 transition-all inline-flex items-center justify-center gap-2.5 group"
               >
-                <span>About AgriSethu</span>
+                <span>About RaithaSetu</span>
                 <ArrowRight className="w-4 h-4 text-emerald-200 group-hover:translate-x-1 transition-transform" />
               </Link>
 
@@ -170,7 +170,7 @@ export const HeroSection: React.FC = () => {
               </div>
             </div>
 
-            {/* AgriSethu Real Platform Services Card & Contained Organic Badge */}
+            {/* RaithaSetu Real Platform Services Card & Contained Organic Badge */}
             <div className="relative z-10 flex flex-col items-end">
               <div className="bg-white/95 backdrop-blur-md rounded-[20px] shadow-[0_12px_36px_rgba(0,90,60,0.12)] border border-[#E0EBE2] p-3.5 sm:p-4 w-[240px] sm:w-[258px] space-y-2.5 transition-transform duration-300 hover:-translate-y-1">
                 
@@ -183,7 +183,7 @@ export const HeroSection: React.FC = () => {
                         ನಮ್ಮ ಸೇವೆಗಳು
                       </span>
                       <span className="text-[8px] font-bold uppercase tracking-wider text-[#63736B] mt-0.5">
-                        AGRISETHU PLATFORM
+                        RAITHASETU PLATFORM
                       </span>
                     </div>
                   </div>
@@ -268,7 +268,7 @@ export const HeroSection: React.FC = () => {
                 {/* Subtle Divider & Platform Footer */}
                 <div className="pt-2 text-[10px] text-[#63736B] font-medium border-t border-[#F0F5F2] flex items-center gap-1.5">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#087A3D] flex-shrink-0" />
-                  <span>AgriSethu Platform</span>
+                  <span>RaithaSetu Platform</span>
                 </div>
               </div>
 
@@ -339,7 +339,7 @@ export const HeroSection: React.FC = () => {
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-[#087A3D]" />
                 <span className="font-bold text-sm text-[#17352A]">
-                  {isKannada ? 'ಅಗ್ರಿಸೇತು ಪರಿಚಯ ವೀಡಿಯೊ' : 'AgriSethu Video Overview'}
+                  {isKannada ? 'RaithaSetu ಪರಿಚಯ ವೀಡಿಯೊ' : 'RaithaSetu Video Overview'}
                 </span>
               </div>
               <button
@@ -357,12 +357,12 @@ export const HeroSection: React.FC = () => {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-[#17352A]">
-                  {isKannada ? 'ಅಗ್ರಿಸೇತು ಮಾಹಿತಿ ಚಿತ್ರ ಶೀಘ್ರದಲ್ಲೇ ಲಭ್ಯ' : 'AgriSethu Documentary & Overview Coming Soon'}
+                  {isKannada ? 'RaithaSetu ಮಾಹಿತಿ ಚಿತ್ರ ಶೀಘ್ರದಲ್ಲೇ ಲಭ್ಯ' : 'RaithaSetu Documentary & Overview Coming Soon'}
                 </h3>
                 <p className="text-xs sm:text-sm text-[#63736B] max-w-md mx-auto mt-2 leading-relaxed">
                   {isKannada
-                    ? 'ಕರ್ನಾಟಕದ ರೈತರಿಗಾಗಿ ರೂಪಿಸಲಾಗುತ್ತಿರುವ ಅಗ್ರಿಸೇತು ಪರಿಕಲ್ಪನೆ ಮತ್ತು ಉಪಕ್ರಮಗಳ ಕುರಿತಾದ ವೀಡಿಯೊ ಶೀಘ್ರದಲ್ಲೇ ಬಿಡುಗಡೆಯಾಗಲಿದೆ.'
-                    : 'The official visual journey explaining the AgriSethu rural bridge initiative is currently being produced.'}
+                    ? 'ಕರ್ನಾಟಕದ ರೈತರಿಗಾಗಿ ರೂಪಿಸಲಾಗುತ್ತಿರುವ RaithaSetu ಪರಿಕಲ್ಪನೆ ಮತ್ತು ಉಪಕ್ರಮಗಳ ಕುರಿತಾದ ವೀಡಿಯೊ ಶೀಘ್ರದಲ್ಲೇ ಬಿಡುಗಡೆಯಾಗಲಿದೆ.'
+                    : 'The official visual journey explaining the RaithaSetu rural bridge initiative is currently being produced.'}
                 </p>
               </div>
 

@@ -10,7 +10,7 @@ import { EcosystemSection } from '../components/home/EcosystemSection';
 import { KarnatakaAppSection } from '../components/home/KarnatakaAppSection';
 import { VisionMissionSection } from '../components/home/VisionMissionSection';
 import { WhoCanJoinSection } from '../components/home/WhoCanJoinSection';
-import { WhyAgriSethuSection } from '../components/home/WhyAgriSethuSection';
+import { WhyRaithaSetuSection } from '../components/home/WhyAgriSethuSection';
 import { RoadmapSection } from '../components/home/RoadmapSection';
 import { ContactSection } from '../components/home/ContactSection';
 
@@ -32,7 +32,7 @@ export const Home: React.FC = () => {
       <VisionMissionSection />
       <KarnatakaAppSection />
       <WhoCanJoinSection />
-      <WhyAgriSethuSection />
+      <WhyRaithaSetuSection />
       <RoadmapSection />
       <ContactSection />
     </div>

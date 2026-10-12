@@ -100,7 +100,7 @@ export const AppSection: React.FC = () => {
                   {/* Screen Header */}
                   <div className="bg-[#087A3D] text-white p-3.5 space-y-1">
                     <div className="flex items-center justify-between">
-                      <span className="font-bold text-sm">AgriSethu</span>
+                      <span className="font-bold text-sm">RaithaSetu</span>
                       <div className="flex items-center gap-1.5">
                         <span className="text-[10px] bg-white/20 px-1.5 py-0.5 rounded font-semibold">ಕನ್ನಡ</span>
                         <Bell className="w-3.5 h-3.5" />

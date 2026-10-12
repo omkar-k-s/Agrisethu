@@ -109,8 +109,8 @@ export const ForFarmersSection: React.FC = () => {
 
               <p className="text-xs sm:text-sm text-emerald-100 leading-relaxed font-kannada">
                 {isKannada
-                  ? 'AgriSethu ರೈತರಿಗೆ ಯಾವುದೇ ಅನಗತ್ಯ ವೆಚ್ಚವಿಲ್ಲದೆ, ಯಂತ್ರಗಳು ಮತ್ತು ಪರಿಕರಗಳನ್ನು ಸುಲಭವಾಗಿ ಹುಡುಕಲು ನೆರವಾಗುವ ವಿಶ್ವಾಸಾರ್ಹ ಡಿಜಿಟಲ್ ಜಾಲವಾಗಿದೆ.'
-                  : 'AgriSethu is conceived to make agricultural mechanization convenient, cost-effective, and community-driven without unnecessary debts.'}
+                  ? 'RaithaSetu ರೈತರಿಗೆ ಯಾವುದೇ ಅನಗತ್ಯ ವೆಚ್ಚವಿಲ್ಲದೆ, ಯಂತ್ರಗಳು ಮತ್ತು ಪರಿಕರಗಳನ್ನು ಸುಲಭವಾಗಿ ಹುಡುಕಲು ನೆರವಾಗುವ ವಿಶ್ವಾಸಾರ್ಹ ಡಿಜಿಟಲ್ ಜಾಲವಾಗಿದೆ.'
+                  : 'RaithaSetu is conceived to make agricultural mechanization convenient, cost-effective, and community-driven without unnecessary debts.'}
               </p>
 
               <div className="space-y-2 pt-2 border-t border-white/20 text-xs text-emerald-100">

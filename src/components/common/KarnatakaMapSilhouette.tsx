@@ -1,118 +1,231 @@
-import React from 'react';
+import React, { useId } from 'react';
 
-interface KarnatakaMapProps {
+/**
+ * Accurate Geographical Outline coordinates of Karnataka State, India.
+ * Sourced directly from official geospatial cartography (OpenStreetMap / Survey of India).
+ * Scaled cleanly to viewBox 0 0 320 500 with no distortion.
+ */
+export const KARNATAKA_OUTLINE_PATH =
+  'M 224.9,25.0 L 226.1,26.7 L 227.5,25.5 L 227.9,28.8 L 230.6,29.3 L 229.4,30.9 L 229.7,32.3 L 226.9,34.1 L 227.5,34.9 L 232.2,34.7 L 232.8,37.4 L 234.0,37.9 L 237.0,36.6 L 237.1,34.8 L 240.3,36.4 L 241.0,35.9 L 243.2,36.6 L 241.0,39.1 L 241.9,40.7 L 240.4,42.2 L 242.6,44.9 L 242.7,49.0 L 239.4,51.4 L 239.8,52.7 L 241.6,53.0 L 242.1,54.3 L 243.2,53.8 L 244.6,55.3 L 246.0,55.2 L 246.5,57.1 L 246.1,58.4 L 245.0,57.2 L 244.4,57.7 L 245.0,58.6 L 244.0,59.0 L 244.1,61.4 L 241.9,61.1 L 242.8,63.4 L 241.3,63.2 L 239.8,66.9 L 238.1,66.4 L 236.7,69.1 L 240.8,70.4 L 240.8,71.5 L 239.3,73.0 L 233.2,75.1 L 232.5,82.4 L 235.9,83.4 L 236.7,85.1 L 238.1,82.9 L 239.6,84.5 L 242.4,83.6 L 242.6,85.6 L 246.9,86.4 L 248.9,87.9 L 248.6,89.5 L 247.4,89.3 L 246.3,89.0 L 246.6,87.4 L 245.8,89.3 L 243.8,89.6 L 243.8,91.4 L 241.3,90.7 L 241.2,92.4 L 238.7,91.5 L 237.1,92.4 L 237.2,93.5 L 238.7,94.0 L 237.9,95.2 L 238.2,96.3 L 235.2,97.4 L 234.9,96.3 L 233.2,96.1 L 233.4,98.9 L 232.2,101.5 L 233.6,102.3 L 231.1,105.1 L 228.4,106.0 L 230.0,106.9 L 229.3,107.9 L 227.9,107.8 L 227.3,110.2 L 230.1,112.5 L 233.9,113.4 L 236.4,119.7 L 234.9,120.9 L 234.3,125.9 L 233.3,126.3 L 233.5,131.8 L 234.7,134.5 L 232.3,134.5 L 231.4,138.8 L 232.2,139.5 L 234.6,139.2 L 234.3,141.2 L 230.9,142.4 L 232.0,144.1 L 234.7,143.6 L 233.2,145.8 L 234.1,146.9 L 231.3,148.9 L 229.2,148.8 L 231.0,150.2 L 231.0,151.9 L 228.3,152.5 L 227.7,154.2 L 223.1,153.7 L 222.8,154.9 L 219.0,155.2 L 222.4,159.4 L 226.4,161.0 L 231.1,162.2 L 235.6,161.0 L 241.0,163.8 L 242.4,163.6 L 242.7,167.0 L 240.4,166.4 L 238.7,168.7 L 236.6,168.1 L 235.6,169.5 L 235.8,171.2 L 237.3,171.3 L 236.3,171.7 L 235.4,175.5 L 235.6,178.4 L 237.1,179.1 L 235.9,180.5 L 236.7,181.0 L 235.9,183.8 L 237.2,185.7 L 237.1,191.0 L 231.7,189.5 L 228.4,190.1 L 219.8,188.5 L 215.6,189.0 L 209.0,191.5 L 205.6,195.6 L 205.1,196.8 L 207.8,197.5 L 206.7,203.9 L 208.7,204.1 L 208.6,206.2 L 211.9,208.1 L 211.4,210.4 L 208.9,208.5 L 205.5,210.2 L 205.5,218.8 L 201.8,218.3 L 201.8,219.1 L 205.6,223.2 L 205.4,225.2 L 206.6,226.2 L 206.2,228.0 L 207.7,229.2 L 207.7,230.2 L 210.9,229.9 L 211.2,232.4 L 213.4,232.6 L 213.1,233.9 L 214.4,234.1 L 211.7,236.9 L 213.2,237.1 L 214.6,240.5 L 212.4,241.9 L 213.8,242.5 L 213.7,243.7 L 212.0,245.1 L 210.9,249.5 L 209.0,249.7 L 208.9,251.4 L 206.4,251.1 L 206.7,249.6 L 203.8,249.5 L 202.5,250.8 L 198.1,249.4 L 195.4,249.8 L 194.7,247.8 L 192.7,246.6 L 190.4,245.5 L 188.8,246.6 L 189.7,250.4 L 187.8,252.4 L 188.2,253.3 L 191.6,253.8 L 192.2,254.6 L 194.8,253.7 L 194.9,255.8 L 194.6,258.6 L 193.4,259.0 L 194.1,260.3 L 193.1,262.5 L 193.9,264.2 L 192.8,264.2 L 192.8,265.5 L 189.2,265.8 L 190.6,268.7 L 188.8,272.7 L 188.1,277.8 L 189.2,278.2 L 190.8,282.5 L 192.4,282.5 L 194.0,283.9 L 194.8,286.2 L 197.0,285.2 L 201.8,285.5 L 200.9,287.8 L 199.9,287.7 L 199.7,291.1 L 198.0,289.7 L 195.9,291.4 L 195.9,294.5 L 200.7,298.0 L 198.6,299.4 L 199.6,301.3 L 203.9,301.8 L 206.9,301.2 L 208.8,303.3 L 210.6,302.9 L 211.1,298.1 L 212.4,295.2 L 213.8,294.9 L 219.1,296.5 L 222.3,295.0 L 222.1,298.8 L 227.3,299.2 L 227.1,302.0 L 228.3,302.5 L 229.2,304.3 L 231.0,303.4 L 230.3,300.3 L 228.9,299.5 L 228.2,297.3 L 229.2,295.3 L 231.6,295.8 L 231.8,296.8 L 232.7,296.5 L 233.0,298.9 L 235.1,298.2 L 236.5,300.0 L 235.8,302.2 L 237.4,305.2 L 236.5,307.0 L 234.1,306.0 L 229.3,305.9 L 228.3,308.4 L 226.5,308.8 L 226.3,310.5 L 229.1,309.0 L 229.8,309.5 L 227.1,313.2 L 225.8,313.4 L 225.3,315.3 L 229.1,316.2 L 228.5,318.9 L 231.4,318.2 L 232.2,318.9 L 232.0,320.7 L 230.5,320.9 L 230.8,322.3 L 232.0,322.9 L 229.7,324.6 L 229.6,323.4 L 226.9,323.6 L 226.3,322.8 L 227.8,320.4 L 226.4,320.0 L 227.2,317.9 L 225.5,317.6 L 224.6,315.3 L 221.5,316.6 L 221.2,315.0 L 219.6,316.5 L 213.3,317.2 L 211.8,314.2 L 208.7,314.5 L 205.3,313.2 L 205.4,311.5 L 204.4,310.7 L 205.0,305.7 L 200.9,305.4 L 200.1,304.3 L 199.7,305.9 L 196.6,306.3 L 196.0,308.2 L 198.6,308.3 L 199.9,309.6 L 200.1,311.3 L 202.0,312.6 L 201.6,313.5 L 199.1,313.8 L 199.0,315.3 L 203.5,317.9 L 203.1,319.8 L 206.2,321.7 L 206.6,323.4 L 205.0,323.7 L 204.4,326.5 L 202.0,328.7 L 203.4,334.0 L 204.6,334.4 L 205.1,331.8 L 206.3,331.9 L 207.7,334.1 L 209.1,334.2 L 209.4,332.6 L 214.8,332.9 L 215.2,331.6 L 213.8,330.0 L 214.5,328.5 L 211.9,326.7 L 214.5,326.2 L 214.1,323.4 L 215.6,322.2 L 215.4,325.8 L 216.6,326.3 L 217.5,324.8 L 217.9,326.0 L 218.9,323.6 L 219.8,323.8 L 220.3,327.4 L 222.4,327.3 L 223.9,326.1 L 224.8,328.2 L 227.2,326.9 L 228.5,327.8 L 231.8,327.6 L 231.2,330.5 L 233.9,330.0 L 233.4,331.2 L 234.3,333.2 L 234.0,336.3 L 233.0,336.3 L 233.3,338.1 L 235.7,337.6 L 235.3,336.0 L 237.2,336.1 L 237.9,337.6 L 238.7,335.0 L 238.1,333.4 L 239.4,333.5 L 240.2,335.5 L 242.8,333.6 L 244.6,334.7 L 245.6,333.9 L 244.1,333.4 L 244.2,332.5 L 248.1,331.3 L 247.5,333.0 L 249.6,332.4 L 250.5,334.3 L 250.6,330.4 L 254.7,329.2 L 254.8,327.5 L 258.4,325.8 L 256.8,322.9 L 257.7,320.9 L 262.2,321.2 L 262.2,322.5 L 264.2,323.5 L 266.9,319.9 L 267.9,320.1 L 268.0,324.0 L 265.7,324.7 L 266.0,328.6 L 267.5,328.5 L 269.1,325.6 L 272.1,326.3 L 272.2,324.1 L 274.2,325.1 L 274.4,326.4 L 276.6,326.3 L 277.1,327.4 L 276.5,329.9 L 277.3,331.3 L 275.0,334.2 L 277.0,335.9 L 276.5,337.4 L 273.6,337.1 L 273.4,338.5 L 274.9,339.7 L 274.8,340.7 L 276.5,339.8 L 280.0,339.9 L 280.1,341.4 L 282.4,341.7 L 281.7,345.8 L 284.5,343.6 L 286.1,344.7 L 290.4,343.9 L 295.4,344.4 L 293.6,349.5 L 294.1,356.8 L 293.0,359.3 L 295.8,360.2 L 293.8,360.8 L 295.3,362.2 L 297.1,361.1 L 298.2,362.7 L 300.7,361.8 L 300.5,363.1 L 302.7,363.8 L 303.9,365.4 L 306.4,362.6 L 307.5,364.5 L 306.2,368.4 L 307.0,368.7 L 305.1,370.4 L 306.2,370.2 L 307.1,371.9 L 305.1,372.1 L 304.7,373.6 L 302.9,374.2 L 304.3,375.9 L 302.4,376.9 L 302.8,378.8 L 299.3,380.0 L 299.7,384.5 L 297.6,384.1 L 297.8,385.2 L 296.0,386.5 L 296.5,388.0 L 297.8,387.5 L 299.6,389.1 L 299.5,391.6 L 298.3,388.6 L 296.1,389.2 L 295.2,388.3 L 294.5,389.0 L 292.4,386.7 L 291.3,389.2 L 290.3,389.3 L 290.0,390.3 L 291.1,390.6 L 289.6,391.0 L 289.5,392.1 L 285.6,392.0 L 284.2,398.6 L 277.8,397.2 L 272.5,392.4 L 270.6,392.3 L 270.9,393.0 L 269.3,394.3 L 269.7,395.6 L 268.3,395.4 L 267.8,393.7 L 266.7,393.8 L 265.9,392.2 L 265.1,392.5 L 265.2,394.4 L 263.8,394.1 L 264.0,392.3 L 265.2,391.3 L 264.3,391.1 L 264.4,390.0 L 261.9,391.4 L 258.3,391.4 L 255.4,393.2 L 256.6,393.9 L 255.9,395.6 L 256.5,396.2 L 254.5,398.1 L 255.5,399.4 L 253.5,400.2 L 254.3,400.9 L 253.6,402.6 L 251.7,402.9 L 252.0,404.3 L 250.1,403.6 L 249.7,405.1 L 248.0,405.1 L 247.8,403.9 L 246.7,403.6 L 242.7,404.7 L 243.2,407.2 L 242.2,408.1 L 241.5,412.3 L 242.0,414.7 L 243.9,415.0 L 241.8,417.0 L 243.3,417.3 L 244.5,415.9 L 245.1,416.5 L 243.9,424.3 L 239.6,429.3 L 234.9,430.6 L 234.4,434.8 L 237.5,435.7 L 243.5,434.9 L 251.6,436.7 L 254.4,441.1 L 250.0,446.1 L 247.8,451.6 L 238.8,452.8 L 235.9,452.1 L 235.4,455.8 L 233.7,455.0 L 234.1,458.4 L 231.5,464.1 L 229.3,462.3 L 227.4,462.2 L 225.5,463.4 L 222.7,460.9 L 222.4,461.5 L 219.9,460.7 L 219.1,461.9 L 210.7,463.3 L 211.2,466.7 L 208.7,465.7 L 207.2,463.5 L 207.9,462.3 L 206.5,462.3 L 205.8,463.5 L 205.4,461.2 L 202.4,460.7 L 201.5,463.0 L 200.5,462.0 L 197.5,461.8 L 197.0,462.6 L 196.2,465.9 L 192.7,471.0 L 194.2,473.7 L 193.9,474.8 L 187.5,473.4 L 178.2,474.1 L 174.6,473.2 L 174.0,469.8 L 171.5,467.8 L 168.0,470.4 L 165.2,469.9 L 164.4,467.3 L 166.0,466.4 L 164.8,465.3 L 165.1,464.1 L 160.2,465.5 L 156.3,460.7 L 152.6,461.0 L 151.5,457.5 L 150.4,456.9 L 145.8,458.2 L 145.3,449.8 L 138.1,452.9 L 128.7,451.1 L 124.9,446.0 L 125.0,443.2 L 121.8,442.8 L 119.2,443.8 L 118.5,441.3 L 115.7,442.0 L 114.1,438.7 L 111.2,438.8 L 107.3,435.3 L 107.8,434.3 L 104.2,429.4 L 99.5,429.4 L 100.7,428.2 L 99.3,425.7 L 100.0,424.0 L 96.8,422.2 L 96.3,418.5 L 99.5,418.4 L 100.2,417.6 L 99.7,415.7 L 97.4,415.5 L 96.0,417.9 L 94.4,418.0 L 94.1,415.7 L 92.3,415.4 L 92.2,414.2 L 90.3,413.2 L 90.2,411.0 L 91.4,410.1 L 93.0,410.8 L 93.8,409.5 L 92.8,409.7 L 90.4,407.8 L 87.9,411.2 L 86.8,411.2 L 85.5,409.8 L 85.6,407.2 L 82.9,407.7 L 81.4,406.2 L 82.9,404.4 L 82.4,403.7 L 79.7,403.8 L 78.0,402.2 L 78.0,404.2 L 75.4,404.7 L 75.7,401.3 L 72.4,401.5 L 73.1,400.7 L 71.2,400.0 L 73.0,398.1 L 72.6,396.5 L 71.7,396.3 L 70.3,397.5 L 68.0,397.2 L 64.7,399.0 L 63.5,398.6 L 60.8,392.9 L 57.6,377.3 L 52.6,360.1 L 50.7,341.2 L 49.1,338.1 L 46.8,326.0 L 44.1,320.6 L 42.8,320.7 L 40.6,318.2 L 37.6,305.0 L 35.8,302.6 L 32.7,289.9 L 31.9,289.7 L 30.1,283.9 L 27.1,283.1 L 27.4,281.5 L 24.5,276.2 L 25.5,275.0 L 24.7,271.4 L 23.6,270.9 L 24.1,270.2 L 22.2,268.3 L 20.2,269.0 L 20.0,270.1 L 18.5,268.1 L 16.8,268.3 L 16.1,266.2 L 14.6,266.5 L 12.9,264.6 L 15.0,264.5 L 15.0,262.2 L 12.4,258.3 L 14.9,256.7 L 17.4,257.5 L 17.5,254.5 L 18.6,254.6 L 20.0,256.6 L 22.3,253.9 L 23.4,254.5 L 24.1,253.2 L 23.4,251.9 L 26.3,249.0 L 24.7,245.4 L 25.5,242.0 L 27.6,239.5 L 26.6,237.0 L 23.8,235.9 L 23.3,234.8 L 24.9,233.2 L 28.2,233.2 L 28.9,232.4 L 27.6,230.2 L 28.0,227.6 L 24.9,226.1 L 24.9,222.3 L 23.3,219.5 L 25.4,216.9 L 24.1,214.8 L 22.9,214.6 L 24.1,211.4 L 22.8,210.7 L 23.2,208.7 L 21.5,207.9 L 20.3,209.1 L 18.7,207.0 L 17.6,208.9 L 15.7,209.2 L 12.6,207.7 L 15.1,207.1 L 14.8,204.5 L 17.4,202.5 L 20.0,202.0 L 21.3,200.2 L 22.1,200.2 L 21.7,201.8 L 22.6,203.0 L 24.4,202.3 L 25.7,203.1 L 28.0,201.1 L 29.5,201.6 L 30.3,201.0 L 31.2,199.4 L 30.5,198.1 L 31.9,196.1 L 29.0,195.7 L 31.0,193.1 L 32.3,195.7 L 33.4,195.7 L 32.2,192.4 L 35.1,189.0 L 37.2,183.6 L 35.0,182.3 L 31.3,183.8 L 31.6,182.6 L 30.5,182.7 L 31.2,181.1 L 34.9,178.9 L 38.4,180.4 L 39.0,179.4 L 38.3,176.5 L 40.1,172.9 L 38.3,169.8 L 37.5,170.4 L 34.2,169.3 L 33.7,167.6 L 31.3,169.0 L 30.1,167.0 L 29.3,167.1 L 29.8,168.1 L 28.1,168.4 L 27.9,167.5 L 29.3,166.7 L 27.6,164.8 L 28.3,163.7 L 27.6,161.2 L 28.8,160.4 L 30.0,162.2 L 30.7,159.6 L 28.8,159.9 L 28.6,156.4 L 25.8,155.8 L 25.9,153.1 L 23.9,154.7 L 23.0,153.6 L 25.0,153.1 L 24.6,150.3 L 25.4,151.8 L 26.6,151.5 L 26.9,153.2 L 27.5,149.8 L 29.1,150.3 L 30.2,149.5 L 30.3,150.9 L 31.7,151.5 L 32.8,148.0 L 37.4,146.4 L 36.6,143.8 L 37.6,142.7 L 38.9,144.9 L 42.5,144.5 L 42.5,147.2 L 44.0,147.8 L 43.2,149.2 L 44.1,149.9 L 47.4,147.9 L 48.0,148.3 L 48.8,146.2 L 51.9,146.4 L 49.7,144.3 L 50.4,142.6 L 52.0,141.8 L 52.1,139.3 L 54.8,139.1 L 57.4,137.0 L 59.0,137.2 L 62.5,135.5 L 63.6,136.2 L 63.8,135.4 L 67.1,135.6 L 65.9,129.6 L 69.8,128.4 L 70.0,126.6 L 67.2,125.2 L 67.9,124.3 L 70.1,125.4 L 70.0,124.1 L 71.9,123.8 L 74.1,124.3 L 74.0,125.4 L 78.2,123.8 L 78.7,126.3 L 80.1,126.3 L 81.3,128.9 L 84.8,128.8 L 84.3,130.9 L 86.4,131.0 L 88.0,129.3 L 89.7,129.6 L 90.9,128.5 L 90.7,123.5 L 95.3,123.4 L 98.1,121.9 L 100.4,122.8 L 102.9,121.4 L 104.1,122.2 L 104.4,124.3 L 107.1,122.6 L 109.6,122.9 L 109.9,120.0 L 112.2,120.3 L 112.2,122.5 L 113.9,122.6 L 114.6,123.6 L 116.3,123.1 L 116.3,118.1 L 114.4,118.2 L 115.0,116.9 L 116.7,116.3 L 116.5,113.0 L 115.0,113.1 L 113.4,109.2 L 115.8,106.6 L 115.5,103.4 L 113.5,102.7 L 112.0,100.6 L 112.4,98.0 L 110.5,97.6 L 110.0,95.5 L 112.6,94.9 L 112.1,93.1 L 113.9,89.4 L 116.7,90.7 L 117.7,93.8 L 120.5,93.1 L 122.6,94.1 L 124.4,96.4 L 125.7,96.2 L 126.2,93.0 L 128.2,93.7 L 128.8,95.4 L 130.3,93.2 L 130.8,97.3 L 133.4,99.5 L 138.9,97.5 L 141.9,97.3 L 143.1,98.9 L 144.5,96.7 L 145.7,96.3 L 148.6,98.0 L 148.8,100.8 L 149.5,100.9 L 149.1,97.5 L 153.8,95.8 L 154.4,97.0 L 155.8,97.0 L 156.1,98.7 L 158.8,98.8 L 158.5,97.8 L 160.6,97.4 L 161.1,100.0 L 163.1,100.0 L 163.9,97.9 L 165.0,97.6 L 164.8,96.3 L 161.8,95.9 L 162.3,92.0 L 159.8,92.2 L 159.6,89.8 L 162.6,88.5 L 160.6,88.3 L 160.7,87.0 L 162.0,86.6 L 161.7,85.4 L 160.3,85.1 L 159.7,81.5 L 165.4,81.1 L 166.1,78.4 L 170.0,77.3 L 169.9,73.8 L 172.3,73.8 L 172.2,70.8 L 175.5,70.8 L 175.3,74.4 L 176.1,74.4 L 178.3,70.1 L 181.5,75.6 L 183.2,76.0 L 183.8,73.0 L 185.7,72.3 L 184.7,69.4 L 187.9,69.0 L 189.7,66.5 L 188.2,64.8 L 186.3,64.5 L 186.4,61.7 L 188.3,61.6 L 188.7,63.1 L 190.8,63.6 L 191.0,62.5 L 192.4,62.6 L 193.0,61.7 L 195.9,62.0 L 197.0,60.5 L 198.2,60.6 L 197.3,54.4 L 197.9,52.8 L 200.4,52.4 L 199.9,49.6 L 201.3,48.6 L 198.3,47.3 L 200.3,42.7 L 202.9,42.6 L 203.6,44.5 L 205.0,44.7 L 205.7,43.1 L 207.7,45.2 L 210.8,44.9 L 211.1,43.9 L 209.9,42.2 L 213.4,40.9 L 213.2,39.4 L 215.0,36.4 L 217.5,36.7 L 216.5,34.4 L 217.9,33.7 L 218.3,31.1 L 219.6,30.8 L 218.8,29.6 L 219.3,28.0 L 224.3,26.1 L 224.9,25.0 Z';
+
+export interface KarnatakaMapProps {
   className?: string;
   fillColor?: string;
   strokeColor?: string;
+  strokeWidth?: number;
+  showMarkers?: boolean;
+  showRivers?: boolean;
+  showElevation?: boolean;
+  showTexture?: boolean;
+  showGlow?: boolean;
+  filterShadow?: boolean;
 }
 
+/**
+ * Accurate Geographical Outline of Karnataka State, India.
+ * Sourced directly from official geospatial cartography.
+ * Scaled and oriented precisely with no stretching, rotation, or distortion.
+ */
 export const KarnatakaMapSilhouette: React.FC<KarnatakaMapProps> = ({
   className = 'w-36 h-52 sm:w-44 sm:h-64',
-  fillColor = '#FBF6DD',
+  fillColor = '#FFFDF0',
   strokeColor = '#E6DCB0',
+  strokeWidth = 1.8,
+  showMarkers = true,
+  showRivers = true,
+  showElevation = true,
+  showTexture = true,
+  showGlow = true,
+  filterShadow = true,
 }) => {
+  const uid = useId().replace(/[^a-zA-Z0-9_-]/g, '');
+  const shadowId = `kar-shadow-${uid}`;
+  const gradId = `kar-grad-${uid}`;
+  const elevId = `kar-elev-${uid}`;
+  const furrowId = `kar-furrows-${uid}`;
+  const clipId = `kar-clip-${uid}`;
+
+  const isTransparent = fillColor === 'transparent' || fillColor === 'none';
+
   return (
     <svg
       viewBox="0 0 320 500"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      aria-label="Official Karnataka State Map Silhouette"
+      aria-label="Accurate Karnataka State Map Silhouette"
     >
       <defs>
-        {/* Soft shadow for tactile 3D relief */}
-        <filter id="karnataka-shadow-realistic" x="-15%" y="-15%" width="130%" height="130%">
-          <feDropShadow dx="0" dy="5" stdDeviation="6" floodColor="#04331C" floodOpacity="0.25" />
-        </filter>
+        {/* Soft realistic ambient shadow */}
+        {filterShadow && (
+          <filter id={shadowId} x="-15%" y="-15%" width="130%" height="130%">
+            <feDropShadow dx="0" dy="5" stdDeviation="6" floodColor="#04331C" floodOpacity="0.18" />
+          </filter>
+        )}
+
         {/* Warm ivory and golden cream gradient */}
-        <linearGradient id="karnataka-cream-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#FFFDF2" />
-          <stop offset="60%" stopColor={fillColor} />
-          <stop offset="100%" stopColor="#F4ECC8" />
-        </linearGradient>
+        {!isTransparent && (
+          <linearGradient id={gradId} x1="20%" y1="0%" x2="80%" y2="100%">
+            <stop offset="0%" stopColor="#FFFDF7" />
+            <stop offset="55%" stopColor={fillColor} />
+            <stop offset="100%" stopColor="#F5EDCE" />
+          </linearGradient>
+        )}
+
+        {/* Very soft inner highlight for 3D tactile elevation */}
+        {showElevation && (
+          <linearGradient id={elevId} x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#DFCFA0" stopOpacity="0.1" />
+          </linearGradient>
+        )}
+
+        {/* Subtle agricultural texture pattern (gentle field furrows) */}
+        {showTexture && (
+          <pattern
+            id={furrowId}
+            width="16"
+            height="16"
+            patternTransform="rotate(35 0 0)"
+            patternUnits="userSpaceOnUse"
+          >
+            <line
+              x1="0"
+              y1="0"
+              x2="0"
+              y2="16"
+              stroke="#8FA682"
+              strokeWidth="0.8"
+              opacity="0.12"
+              strokeDasharray="3 3"
+            />
+          </pattern>
+        )}
+
+        {/* State boundary clip path to constrain internal textures and river basins */}
+        <clipPath id={clipId}>
+          <path d={KARNATAKA_OUTLINE_PATH} />
+        </clipPath>
       </defs>
 
-      {/* Main Geographic State Outline of Karnataka */}
+      {/* Main Geographic State Outline of Karnataka with Realistic Shadow & Warm Ivory Fill */}
       <path
-        d="M 202 24
-           C 185 38, 155 58, 132 74
-           C 108 90, 78 88, 54 98
-           C 40 105, 34 122, 33 140
-           C 31 162, 32 188, 35 212
-           C 38 238, 44 266, 48 290
-           C 52 312, 57 334, 62 354
-           C 66 372, 70 388, 76 400
-           C 84 414, 102 426, 120 436
-           C 134 444, 142 458, 146 474
-           C 152 478, 162 470, 172 456
-           C 184 440, 198 428, 214 420
-           C 230 412, 248 412, 260 406
-           C 264 402, 260 388, 252 374
-           C 244 358, 234 346, 230 334
-           C 222 314, 206 294, 204 278
-           C 202 268, 214 262, 232 258
-           C 248 254, 258 244, 262 230
-           C 268 210, 270 190, 266 172
-           C 260 150, 246 136, 238 118
-           C 230 100, 226 76, 222 52
-           C 220 38, 214 26, 202 24
-           Z"
-        fill="url(#karnataka-cream-grad)"
+        d={KARNATAKA_OUTLINE_PATH}
+        fill={isTransparent ? 'transparent' : `url(#${gradId})`}
         stroke={strokeColor}
-        strokeWidth="2.5"
+        strokeWidth={strokeWidth}
         strokeLinejoin="round"
         strokeLinecap="round"
-        filter="url(#karnataka-shadow-realistic)"
+        filter={filterShadow ? `url(#${shadowId})` : undefined}
       />
 
-      {/* Internal Geographic Features (Western Ghats & River Basins) */}
-      {/* Western Ghats Ridge line */}
-      <path
-        d="M 52 170 Q 56 240 68 310 Q 78 370 110 420"
-        stroke="#DED3A4"
-        strokeWidth="1.5"
-        strokeDasharray="3 3"
-        fill="none"
-        opacity="0.75"
-      />
-      {/* Krishna Basin in North */}
-      <path
-        d="M 80 120 Q 150 115 210 125 T 255 160"
-        stroke="#D6CB99"
-        strokeWidth="1.2"
-        fill="none"
-        opacity="0.65"
-      />
-      {/* Tungabhadra Basin */}
-      <path
-        d="M 70 260 Q 130 250 180 265 T 250 240"
-        stroke="#D6CB99"
-        strokeWidth="1.2"
-        fill="none"
-        opacity="0.65"
-      />
-      {/* Kaveri Basin in South */}
-      <path
-        d="M 95 410 Q 140 405 180 415 T 225 410"
-        stroke="#D6CB99"
-        strokeWidth="1.2"
-        fill="none"
-        opacity="0.65"
-      />
+      {/* Clipped Internal Decorative Features */}
+      {(showTexture || showElevation || showRivers || showGlow) && (
+        <g clipPath={`url(#${clipId})`} pointerEvents="none">
+          {/* Subtle Agricultural Field Texture */}
+          {showTexture && (
+            <rect x="0" y="0" width="320" height="500" fill={`url(#${furrowId})`} />
+          )}
 
-      {/* Key City Anchor Points */}
-      {/* Bengaluru */}
-      <circle cx="218" cy="410" r="3.5" fill="#087A3D" />
-      <circle cx="218" cy="410" r="7" stroke="#087A3D" strokeWidth="1" opacity="0.35" />
-      
-      {/* Mysuru */}
-      <circle cx="160" cy="442" r="3" fill="#E8B83F" />
-      
-      {/* Dharwad / Hubballi */}
-      <circle cx="95" cy="225" r="3" fill="#E8B83F" />
-      
-      {/* Kalaburagi */}
-      <circle cx="210" cy="110" r="3" fill="#E8B83F" />
+          {/* Topographic Elevation Highlight */}
+          {showElevation && (
+            <path d={KARNATAKA_OUTLINE_PATH} fill={`url(#${elevId})`} />
+          )}
+
+          {/* Western Ghats Malnad Ridge Line (North-South Mountain Corridor) */}
+          {showRivers && (
+            <>
+              <path
+                d="M 38 185 Q 48 245 58 310 Q 72 365 105 425"
+                stroke="#97AD8C"
+                strokeWidth="1.2"
+                strokeDasharray="3 3"
+                fill="none"
+                opacity="0.6"
+              />
+
+              {/* Krishna River Basin Corridor (Northern Belagavi - Raichur) */}
+              <path
+                d="M 52 145 Q 120 130 185 142 Q 215 152 238 162"
+                stroke="#C7B885"
+                strokeWidth="1"
+                strokeDasharray="2 3"
+                fill="none"
+                opacity="0.45"
+              />
+
+              {/* Tungabhadra River Basin Corridor (Central Karnataka Agricultural Belt) */}
+              <path
+                d="M 112 318 Q 155 285 205 272 Q 235 268 268 278"
+                stroke="#C7B885"
+                strokeWidth="1"
+                strokeDasharray="2 3"
+                fill="none"
+                opacity="0.45"
+              />
+
+              {/* Kaveri Basin Corridor (Southern Fertile Irrigated Belt) */}
+              <path
+                d="M 118 440 Q 152 430 185 426 Q 218 422 248 418"
+                stroke="#C7B885"
+                strokeWidth="1"
+                strokeDasharray="2 3"
+                fill="none"
+                opacity="0.45"
+              />
+            </>
+          )}
+
+          {/* Soft Green Inner Boundary Glow */}
+          {showGlow && (
+            <path
+              d={KARNATAKA_OUTLINE_PATH}
+              fill="none"
+              stroke="#087A3D"
+              strokeWidth="0.8"
+              opacity="0.25"
+              strokeLinejoin="round"
+            />
+          )}
+        </g>
+      )}
+
+      {/* Primary Agrarian and Administrative Anchor Points */}
+      {showMarkers && (
+        <>
+          {/* 1. Bengaluru (State Capital & Agricultural Tech Hub) */}
+          <circle cx="243.1" cy="384.5" r="3.2" fill="#087A3D" />
+          <circle cx="243.1" cy="384.5" r="6.5" stroke="#E8B83F" strokeWidth="1" opacity="0.8" />
+
+          {/* 2. Mysuru (Southern Canal & Heritage Belt) */}
+          <circle cx="181.8" cy="428.4" r="2.6" fill="#E8B83F" />
+          <circle cx="181.8" cy="428.4" r="5" stroke="#087A3D" strokeWidth="0.8" opacity="0.35" />
+
+          {/* 3. Mandya (Sugar & Paddy Heart of South) */}
+          <circle cx="195" cy="410" r="1.8" fill="#E8B83F" opacity="0.85" />
+
+          {/* 4. Shivamogga (Malnad & Spice/Arecanut Zone) */}
+          <circle cx="111.4" cy="321.5" r="2.6" fill="#E8B83F" />
+          <circle cx="111.4" cy="321.5" r="5" stroke="#087A3D" strokeWidth="0.8" opacity="0.35" />
+
+          {/* 5. Hubballi-Dharwad (Central Transition Zone & Cotton/Pulses Hub) */}
+          <circle cx="82.1" cy="227.7" r="2.6" fill="#E8B83F" />
+          <circle cx="82.1" cy="227.7" r="5" stroke="#087A3D" strokeWidth="0.8" opacity="0.35" />
+
+          {/* 6. Belagavi (Northern Transition & Sugarcane Belt) */}
+          <circle cx="41.7" cy="195.6" r="2.4" fill="#E8B83F" opacity="0.9" />
+
+          {/* 7. Kalaburagi (Northern Dry Zone & Toor Dal Capital) */}
+          <circle cx="193.6" cy="98.5" r="2.6" fill="#E8B83F" />
+          <circle cx="193.6" cy="98.5" r="5" stroke="#087A3D" strokeWidth="0.8" opacity="0.35" />
+
+          {/* 8. Raichur (Doab Cotton & Paddy) */}
+          <circle cx="235" cy="205" r="1.8" fill="#E8B83F" opacity="0.8" />
+
+          {/* 9. Mangaluru (Coastal Zone) */}
+          <circle cx="53" cy="388" r="2" fill="#E8B83F" opacity="0.85" />
+        </>
+      )}
     </svg>
   );
 };

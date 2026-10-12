@@ -158,7 +158,7 @@ export const WhatWeDoSection: React.FC = () => {
 
           {/* Description */}
           <p className="text-base sm:text-[17px] text-[#68776F] leading-relaxed mt-4 max-w-[760px] mx-auto font-normal">
-            AgriSethu is being built to connect farmers with the equipment, agricultural resources, service providers and marketplace services they need through one connected digital platform.
+            RaithaSetu is being built to connect farmers with the equipment, agricultural resources, service providers and marketplace services they need through one connected digital platform.
           </p>
         </div>
 
@@ -243,10 +243,10 @@ export const WhatWeDoSection: React.FC = () => {
           </div>
           <div className="flex flex-col space-y-1">
             <p className="text-sm sm:text-base font-bold text-[#075C38] leading-snug">
-              AgriSethu is being built to bring farmer accounts, equipment access, agricultural resources, service connections, bookings, marketplace activities, orders and delivery into one connected digital ecosystem.
+              RaithaSetu is being built to bring farmer accounts, equipment access, agricultural resources, service connections, bookings, marketplace activities, orders and delivery into one connected digital ecosystem.
             </p>
             <p className="font-kannada text-xs sm:text-[13.5px] text-[#075C38]/90 font-semibold leading-relaxed">
-              ರೈತ ಖಾತೆಗಳು, ಯಂತ್ರೋಪಕರಣಗಳ ಪ್ರವೇಶ, ಕೃಷಿ ಸಂಪನ್ಮೂಲಗಳು, ಸೇವಾ ಸಂಪರ್ಕಗಳು, ಬುಕ್ಕಿಂಗ್, ಮಾರುಕಟ್ಟೆ ಚಟುವಟಿಕೆಗಳು, ಆರ್ಡರ್ ಮತ್ತು ವಿತರಣೆಯನ್ನು ಒಂದೇ ಸಂಪರ್ಕಿತ ಡಿಜಿಟಲ್ ಪರಿಸರದಲ್ಲಿ ತರಲು AgriSethu ನಿರ್ಮಿಸಲಾಗುತ್ತಿದೆ.
+              ರೈತ ಖಾತೆಗಳು, ಯಂತ್ರೋಪಕರಣಗಳ ಪ್ರವೇಶ, ಕೃಷಿ ಸಂಪನ್ಮೂಲಗಳು, ಸೇವಾ ಸಂಪರ್ಕಗಳು, ಬುಕ್ಕಿಂಗ್, ಮಾರುಕಟ್ಟೆ ಚಟುವಟಿಕೆಗಳು, ಆರ್ಡರ್ ಮತ್ತು ವಿತರಣೆಯನ್ನು ಒಂದೇ ಸಂಪರ್ಕಿತ ಡಿಜಿಟಲ್ ಪರಿಸರದಲ್ಲಿ ತರಲು RaithaSetu ನಿರ್ಮಿಸಲಾಗುತ್ತಿದೆ.
             </p>
           </div>
         </div>
