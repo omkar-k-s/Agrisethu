@@ -88,6 +88,16 @@ export const Footer: React.FC = () => {
                   {t.nav.app}
                 </Link>
               </li>
+              <li>
+                <Link to="/news" className="hover:text-white transition-colors">
+                  {isKannada ? 'ಕೃಷಿ ಸುದ್ದಿ ಮತ್ತು ಅಪ್ಡೇಟ್ಸ್' : 'News & Updates'}
+                </Link>
+              </li>
+              <li>
+                <Link to="/announcements" className="hover:text-white transition-colors">
+                  {isKannada ? 'ರೈತರ ಪ್ರಕಟಣೆಗಳು' : 'Announcements'}
+                </Link>
+              </li>
             </ul>
           </div>
 

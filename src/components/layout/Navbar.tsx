@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation as useRouterLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
+import { SearchDropdown } from '../common/SearchDropdown';
 import {
   MapPin,
   BookOpen,
@@ -130,31 +131,43 @@ export const Navbar: React.FC = () => {
           {/* Right: Public Portal Utility Links & Font Size Switcher */}
           <div className="flex items-center gap-4 sm:gap-6 flex-shrink-0">
             <div className="hidden lg:flex items-center gap-5 text-white/90 text-[11px] font-medium">
-              <a
-                href="#news"
-                className="flex items-center gap-1.5 hover:text-emerald-200 transition-colors"
+              <NavLink
+                to="/news"
+                className={({ isActive }) =>
+                  `flex items-center gap-1.5 transition-colors ${
+                    isActive ? 'text-[#E8B83F] font-bold' : 'hover:text-emerald-200'
+                  }`
+                }
                 title="News & Updates"
               >
                 <BookOpen className="w-3.5 h-3.5 text-emerald-300" />
-                <span>News & Updates</span>
-              </a>
+                <span>{isKannada ? 'ಸುದ್ದಿ ಮತ್ತು ಅಪ್ಡೇಟ್ಸ್' : 'News & Updates'}</span>
+              </NavLink>
 
-              <a
-                href="#announcements"
-                className="flex items-center gap-1.5 hover:text-emerald-200 transition-colors"
+              <NavLink
+                to="/announcements"
+                className={({ isActive }) =>
+                  `flex items-center gap-1.5 transition-colors ${
+                    isActive ? 'text-[#E8B83F] font-bold' : 'hover:text-emerald-200'
+                  }`
+                }
                 title="Announcements"
               >
                 <Megaphone className="w-3.5 h-3.5 text-emerald-300" />
-                <span>Announcements</span>
-              </a>
+                <span>{isKannada ? 'ಪ್ರಕಟಣೆಗಳು' : 'Announcements'}</span>
+              </NavLink>
 
               <NavLink
                 to="/contact"
-                className="flex items-center gap-1.5 hover:text-emerald-200 transition-colors"
+                className={({ isActive }) =>
+                  `flex items-center gap-1.5 transition-colors ${
+                    isActive ? 'text-[#E8B83F] font-bold' : 'hover:text-emerald-200'
+                  }`
+                }
                 title="Help & Support"
               >
                 <HelpCircle className="w-3.5 h-3.5 text-emerald-300" />
-                <span>Help</span>
+                <span>{isKannada ? 'ಸಹಾಯ' : 'Help'}</span>
               </NavLink>
 
               <button
@@ -261,22 +274,8 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Right: Institutional Search Bar */}
-          <div className="flex items-center gap-3">
-            <form
-              onSubmit={handleSearchSubmit}
-              className="relative hidden sm:block w-44 md:w-52 lg:w-64"
-            >
-              <div className="relative flex items-center">
-                <Search className="absolute left-3.5 w-4 h-4 text-[#63736B] pointer-events-none" />
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder={isKannada ? 'ಹುಡುಕಿ...' : 'Search...'}
-                  className="w-full bg-white text-xs sm:text-sm text-[#17352A] pl-10 pr-4 py-2.5 rounded-full border border-[#DCE8DF] shadow-2xs placeholder-[#8A9B93] focus:outline-none focus:border-[#087A3D] focus:ring-2 focus:ring-[#087A3D]/10 transition-all"
-                />
-              </div>
-            </form>
+          <div className="hidden sm:block">
+            <SearchDropdown />
           </div>
 
         </div>
@@ -466,18 +465,43 @@ export const Navbar: React.FC = () => {
         {mobileMenuOpen && (
           <div className="lg:hidden border-t border-[#E4EEE7] bg-white px-4 pt-4 pb-8 shadow-2xl animate-fadeIn max-h-[calc(100vh-60px)] overflow-y-auto">
             {/* Mobile Search Bar */}
-            <form onSubmit={handleSearchSubmit} className="mb-4">
-              <div className="relative flex items-center">
-                <Search className="absolute left-3.5 w-4 h-4 text-[#63736B]" />
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder={isKannada ? 'ಹುಡುಕಿ...' : 'Search...'}
-                  className="w-full bg-[#F6FBF6] text-sm text-[#17352A] pl-10 pr-4 py-2.5 rounded-xl border border-[#DCE8DF] focus:outline-none focus:border-[#087A3D]"
-                />
-              </div>
-            </form>
+            <div className="mb-4">
+              <SearchDropdown
+                isMobile
+                onCloseMobile={() => setMobileMenuOpen(false)}
+              />
+            </div>
+
+            {/* Quick Links for News and Announcements on Mobile */}
+            <div className="grid grid-cols-2 gap-2 mb-4">
+              <NavLink
+                to="/news"
+                className={({ isActive }) =>
+                  `flex items-center gap-2 p-2.5 rounded-xl text-xs font-bold transition-colors ${
+                    isActive
+                      ? 'bg-[#EAF7EC] text-[#087A3D]'
+                      : 'bg-[#F4FAF6] text-[#17352A] hover:bg-[#EAF7EC]'
+                  }`
+                }
+              >
+                <BookOpen className="w-4 h-4 text-[#087A3D]" />
+                <span className="truncate">{isKannada ? 'ಸುದ್ದಿ ಮತ್ತು ಅಪ್ಡೇಟ್ಸ್' : 'News & Updates'}</span>
+              </NavLink>
+
+              <NavLink
+                to="/announcements"
+                className={({ isActive }) =>
+                  `flex items-center gap-2 p-2.5 rounded-xl text-xs font-bold transition-colors ${
+                    isActive
+                      ? 'bg-[#EAF7EC] text-[#087A3D]'
+                      : 'bg-[#F4FAF6] text-[#17352A] hover:bg-[#EAF7EC]'
+                  }`
+                }
+              >
+                <Megaphone className="w-4 h-4 text-[#087A3D]" />
+                <span className="truncate">{isKannada ? 'ಪ್ರಕಟಣೆಗಳು' : 'Announcements'}</span>
+              </NavLink>
+            </div>
 
             {/* Mobile Nav Links */}
             <div className="space-y-1.5">

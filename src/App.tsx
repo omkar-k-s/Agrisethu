@@ -12,6 +12,8 @@ import { HowItWorks } from './pages/HowItWorks';
 import { Vision } from './pages/Vision';
 import { AppPage } from './pages/AppPage';
 import { Contact } from './pages/Contact';
+import { News } from './pages/News';
+import { Announcements } from './pages/Announcements';
 
 export const App: React.FC = () => {
   return (
@@ -29,6 +31,8 @@ export const App: React.FC = () => {
               <Route path="/what-we-do" element={<WhatWeDo />} />
               <Route path="/how-it-works" element={<HowItWorks />} />
               <Route path="/vision" element={<Vision />} />
+              <Route path="/news" element={<News />} />
+              <Route path="/announcements" element={<Announcements />} />
               <Route path="/app" element={<AppPage />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<Home />} />
