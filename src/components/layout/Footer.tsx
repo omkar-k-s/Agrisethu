@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
-import { BrandLogo } from '../common/BrandLogo';
 import { LanguageToggle } from '../common/LanguageToggle';
 import { ShieldCheck, Mail, Phone, MapPin } from 'lucide-react';
 
@@ -13,8 +12,18 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-10 border-b border-emerald-800/80">
           {/* Brand & Purpose (5 cols) */}
-          <div className="lg:col-span-5 space-y-3.5">
-            <BrandLogo variant="dark" />
+          <div className="lg:col-span-5 space-y-4">
+            <Link
+              to="/"
+              className="inline-block bg-white rounded-2xl p-2.5 sm:p-3 shadow-sm border border-emerald-800/30 hover:shadow-md transition-all group focus:outline-none"
+              aria-label="RaithaSetu Home"
+            >
+              <img
+                src="/images/raithasetu-logo.png"
+                alt="RaithaSetu - A Digital Bridge for Karnataka's Farmers"
+                className="w-[230px] sm:w-[265px] md:w-[285px] lg:w-[310px] max-w-full h-auto object-contain block transition-transform duration-200 group-hover:scale-[1.01]"
+              />
+            </Link>
             <p className="text-emerald-100 font-semibold text-sm leading-relaxed">
               {t.brand.tagline}
             </p>
@@ -36,8 +45,8 @@ export const Footer: React.FC = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-[#E8B83F]" />
-                <a href="mailto:ksomkar7@gmail.com" className="hover:text-white transition-colors">
-                  ksomkar7@gmail.com
+                <a href="mailto:raithasetu@gmail.com" className="hover:text-white transition-colors">
+                  raithasetu@gmail.com
                 </a>
               </div>
             </div>

@@ -40,7 +40,7 @@ export const Contact: React.FC = () => {
     setNeedsActivation(false);
 
     try {
-      const response = await fetch('https://formsubmit.co/ajax/ksomkar7@gmail.com', {
+      const response = await fetch('https://formsubmit.co/ajax/raithasetu@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -134,10 +134,10 @@ export const Contact: React.FC = () => {
                       {isKannada ? 'ಅಧಿಕೃತ ಇಮೇಲ್' : 'Official Email'}
                     </span>
                     <a
-                      href="mailto:ksomkar7@gmail.com"
+                      href="mailto:raithasetu@gmail.com"
                       className="text-sm font-semibold text-[#17352A] hover:text-[#087A3D] transition-colors"
                     >
-                      ksomkar7@gmail.com
+                      raithasetu@gmail.com
                     </a>
                   </div>
                 </div>
@@ -309,8 +309,8 @@ export const Contact: React.FC = () => {
                       </div>
                       <p className="leading-relaxed">
                         {isKannada
-                          ? 'FormSubmit ನಿಂದ ksomkar7@gmail.com ಗೆ ಸಕ್ರಿಯಗೊಳಿಸುವ ಇಮೇಲ್ ಕಳುಹಿಸಲಾಗಿದೆ. ದಯವಿಟ್ಟು ನಿಮ್ಮ Gmail (Inbox ಅಥವಾ Spam) ತೆರೆದು "Activate Form" ಬಟನ್ ಕ್ಲಿಕ್ ಮಾಡಿ. ನಂತರ ಸಂದೇಶಗಳು ನೇರವಾಗಿ ನಿಮ್ಮ ಇಮೇಲ್‌ಗೆ ಬರುತ್ತವೆ!'
-                          : 'An activation email from FormSubmit has just been sent to ksomkar7@gmail.com. Please check your Gmail (Inbox and Spam/Promotions) and click the "Activate Form" button once. After activating, all future messages will arrive directly!'}
+                          ? 'FormSubmit ನಿಂದ raithasetu@gmail.com ಗೆ ಸಕ್ರಿಯಗೊಳಿಸುವ ಇಮೇಲ್ ಕಳುಹಿಸಲಾಗಿದೆ. ದಯವಿಟ್ಟು ನಿಮ್ಮ Gmail (Inbox ಅಥವಾ Spam) ತೆರೆದು "Activate Form" ಬಟನ್ ಕ್ಲಿಕ್ ಮಾಡಿ. ನಂತರ ಸಂದೇಶಗಳು ನೇರವಾಗಿ ನಿಮ್ಮ ಇಮೇಲ್‌ಗೆ ಬರುತ್ತವೆ!'
+                          : 'An activation email from FormSubmit has just been sent to raithasetu@gmail.com. Please check your Gmail (Inbox and Spam/Promotions) and click the "Activate Form" button once. After activating, all future messages will arrive directly!'}
                       </p>
                     </div>
                   )}
@@ -322,7 +322,7 @@ export const Contact: React.FC = () => {
                         <span>{errorMessage}</span>
                       </div>
                       <a
-                        href={`mailto:ksomkar7@gmail.com?subject=${encodeURIComponent(`RaithaSetu Inquiry from ${formData.name}`)}&body=${encodeURIComponent(`Name: ${formData.name}\nPhone: ${formData.phone}\nRole: ${formData.role}\n\nMessage:\n${formData.message}`)}`}
+                        href={`mailto:raithasetu@gmail.com?subject=${encodeURIComponent(`RaithaSetu Inquiry from ${formData.name}`)}&body=${encodeURIComponent(`Name: ${formData.name}\nPhone: ${formData.phone}\nRole: ${formData.role}\n\nMessage:\n${formData.message}`)}`}
                         className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-600 text-white font-semibold text-xs hover:bg-red-700 transition-colors whitespace-nowrap self-start sm:self-auto"
                       >
                         <Mail className="w-3.5 h-3.5" />

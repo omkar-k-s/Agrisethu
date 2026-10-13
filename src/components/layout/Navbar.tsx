@@ -226,7 +226,7 @@ export const Navbar: React.FC = () => {
         </div>
 
         {/* Brand Container */}
-        <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-3.5 sm:py-5 flex items-center justify-between gap-4">
+        <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3.5 flex items-center justify-between gap-4">
           
           {/* Left: RaithaSetu Emblem + Brand Name + Institutional Tagline */}
           <div className="flex items-center gap-4 sm:gap-6">
@@ -234,77 +234,22 @@ export const Navbar: React.FC = () => {
             {/* Clickable Main Brand Logo */}
             <NavLink
               to="/"
-              className="flex items-center gap-3 group focus:outline-none"
+              className="flex items-center group focus:outline-none flex-shrink-0"
               aria-label="RaithaSetu Home"
             >
-              {/* Sprout & Bridge Icon Emblem matching reference */}
-              <div className="relative flex h-12 w-12 sm:h-14 sm:w-14 flex-shrink-0 items-center justify-center">
-                <svg viewBox="0 0 48 48" fill="none" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                  {/* Top Golden Leaf */}
-                  <path
-                    d="M24 16C24 16 16 14 16 6C22 6 25 11 25 11"
-                    stroke="#E8B83F"
-                    strokeWidth="3.2"
-                    strokeLinecap="round"
-                    fill="#FDF0CD"
-                  />
-                  {/* Right Golden Sprout Leaf */}
-                  <path
-                    d="M24 16C24 16 32 14 32 6C26 6 23 11 23 11"
-                    stroke="#E8B83F"
-                    strokeWidth="3.2"
-                    strokeLinecap="round"
-                    fill="#FDF0CD"
-                  />
-                  {/* Center Stem */}
-                  <path
-                    d="M24 12V24"
-                    stroke="#087A3D"
-                    strokeWidth="3.5"
-                    strokeLinecap="round"
-                  />
-                  {/* Bridge Arch & Bottom Cradle Leaves */}
-                  <path
-                    d="M10 34C14 26 34 26 38 34"
-                    stroke="#087A3D"
-                    strokeWidth="3.5"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M12 37H36"
-                    stroke="#005A3C"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M24 24C19 23 15 28 17 33C21 33 24 28 24 24Z"
-                    fill="#087A3D"
-                  />
-                  <path
-                    d="M24 24C29 23 33 28 31 33C27 33 24 28 24 24Z"
-                    fill="#087A3D"
-                  />
-                </svg>
-              </div>
-
-              {/* Brand Typography */}
-              <div className="flex flex-col">
-                <div className="flex items-baseline leading-none">
-                  <span className="text-2xl sm:text-3xl font-extrabold text-[#087A3D] tracking-tight">
-                    Raitha<span className="text-[#064D2C]">Setu</span>
-                  </span>
-                </div>
-                <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.14em] text-[#17352A] uppercase mt-1">
-                  AGRITECH BRIDGE • ಕರ್ನಾಟಕ ರೈತ
-                </span>
-              </div>
+              {/* Responsive Horizontal Logo: ~300-340px on Desktop, scaling proportionally for Tablet/Mobile */}
+              <img
+                src="/images/raithasetu-logo.png"
+                alt="RaithaSetu - A Digital Bridge for Karnataka's Farmers"
+                className="w-[210px] sm:w-[250px] md:w-[285px] lg:w-[320px] xl:w-[335px] max-w-full h-auto object-contain transition-transform duration-200 group-hover:scale-[1.01]"
+              />
             </NavLink>
 
             {/* Vertical Institutional Divider */}
-            <div className="hidden sm:block h-10 w-[1.5px] bg-[#D0DFD6]" />
+            <div className="hidden sm:block h-12 lg:h-14 w-[1.5px] bg-[#D0DFD6] flex-shrink-0" />
 
             {/* Government-style Motto: Farmers • Resources • Progress */}
-            <div className="hidden md:flex flex-col justify-center">
+            <div className="hidden md:flex flex-col justify-center flex-shrink-0">
               <span className="font-kannada font-bold text-sm sm:text-base text-[#17352A] leading-tight">
                 ರೈತರು • ಸಂಪನ್ಮೂಲಗಳು • ಪ್ರಗತಿ
               </span>
@@ -319,7 +264,7 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center gap-3">
             <form
               onSubmit={handleSearchSubmit}
-              className="relative hidden sm:block w-48 md:w-60 lg:w-72"
+              className="relative hidden sm:block w-44 md:w-52 lg:w-64"
             >
               <div className="relative flex items-center">
                 <Search className="absolute left-3.5 w-4 h-4 text-[#63736B] pointer-events-none" />
@@ -465,20 +410,14 @@ export const Navbar: React.FC = () => {
           {/* Mobile Brand Emblem & Title */}
           <NavLink
             to="/"
-            className="flex items-center gap-2.5 group focus:outline-none"
+            className="flex items-center gap-2 group focus:outline-none"
             aria-label="RaithaSetu Home"
           >
-            <div className="relative flex h-8 w-8 flex-shrink-0 items-center justify-center">
-              <svg viewBox="0 0 48 48" fill="none" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                <path d="M24 16C24 16 16 14 16 6C22 6 25 11 25 11" stroke="#E8B83F" strokeWidth="3.2" strokeLinecap="round" fill="#FDF0CD" />
-                <path d="M24 16C24 16 32 14 32 6C26 6 23 11 23 11" stroke="#E8B83F" strokeWidth="3.2" strokeLinecap="round" fill="#FDF0CD" />
-                <path d="M24 12V24" stroke="#087A3D" strokeWidth="3.5" strokeLinecap="round" />
-                <path d="M10 34C14 26 34 26 38 34" stroke="#087A3D" strokeWidth="3.5" strokeLinecap="round" />
-                <path d="M12 37H36" stroke="#005A3C" strokeWidth="2.5" strokeLinecap="round" />
-                <path d="M24 24C19 23 15 28 17 33C21 33 24 28 24 24Z" fill="#087A3D" />
-                <path d="M24 24C29 23 33 28 31 33C27 33 24 28 24 24Z" fill="#087A3D" />
-              </svg>
-            </div>
+            <img
+              src="/images/raithasetu-emblem.png"
+              alt="RaithaSetu"
+              className="h-8 w-auto object-contain"
+            />
             <div className="flex flex-col">
               <span className="text-lg font-extrabold text-[#087A3D] tracking-tight leading-none">
                 Raitha<span className="text-[#064D2C]">Setu</span>

@@ -564,7 +564,7 @@ export const TRANSLATIONS = {
       successDesc: 'ನಿಮ್ಮ ಸಂದೇಶ ನಮಗೆ ತಲುಪಿದೆ. ನಮ್ಮ ತಂಡವು ಶೀಘ್ರದಲ್ಲೇ ನಿಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಲಿದೆ.',
       officeHeading: 'ನಮ್ಮ ಕಚೇರಿ ಮತ್ತು ಸಂಪರ್ಕ',
       officeAddress: 'RaithaSetu ಕೃಷಿ ಉಪಕ್ರಮ, ಕರ್ನಾಟಕ, ಭಾರತ',
-      email: 'contact@raithasetu.in',
+      email: 'raithasetu@gmail.com ',
       phone: '+91 (080) 2800-AGRI',
       helplineNote: 'ಕನ್ನಡ ಮತ್ತು ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ ಸಹಾಯವಾಣಿ ಲಭ್ಯ (ಸೋಮ - ಶನಿ, ಬೆಳಿಗ್ಗೆ 9 ರಿಂದ ಸಂಜೆ 6)',
     },
