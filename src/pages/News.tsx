@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { createPortal } from 'react-dom';
 import { useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { NEWS_ITEMS, NewsItem } from '../data/newsData';
@@ -36,6 +37,26 @@ export const News: React.FC = () => {
       }
     }
   }, [location.search]);
+
+  // Lock background scrolling and handle Escape key when modal is open
+  useEffect(() => {
+    if (activeModalItem) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+          setActiveModalItem(null);
+        }
+      };
+      window.addEventListener('keydown', handleKeyDown);
+
+      return () => {
+        document.body.style.overflow = originalOverflow;
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    }
+  }, [activeModalItem]);
 
   const categories = [
     { id: 'all', labelEn: 'All Updates', labelKn: 'ಎಲ್ಲಾ ಸುದ್ದಿಗಳು' },
@@ -259,56 +280,57 @@ export const News: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 4. MODAL DIALOG FOR FULL ARTICLE READING                                 */}
+      {/* 4. MODAL DIALOG RENDERED VIA PORTAL TO BODY (Above Navbar z-[1000])     */}
       {/* ========================================================================= */}
-      {activeModalItem && (
+      {activeModalItem && typeof document !== 'undefined' && createPortal(
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200"
+          className="fixed inset-0 z-[99999] flex items-center justify-center p-3 sm:p-5 md:p-6 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200"
           onClick={() => setActiveModalItem(null)}
           role="dialog"
           aria-modal="true"
+          aria-labelledby="news-modal-title"
         >
           <div
-            className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-[#DCE8DF] overflow-hidden max-h-[90vh] flex flex-col"
+            className="relative w-full max-w-2xl bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-[#DCE8DF] overflow-hidden max-h-[calc(100dvh-32px)] sm:max-h-[calc(100dvh-48px)] flex flex-col my-auto animate-in zoom-in-95 duration-200"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Modal Header */}
-            <div className="bg-[#064D2C] text-white p-6 relative">
+            {/* Modal Header (Pinned at top) */}
+            <div className="flex-shrink-0 bg-[#064D2C] text-white p-5 sm:p-6 relative">
               <button
                 type="button"
                 onClick={() => setActiveModalItem(null)}
-                className="absolute top-5 right-5 p-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+                className="absolute top-4 right-4 sm:top-5 sm:right-5 p-2 rounded-full bg-white/10 hover:bg-white/25 text-white transition-colors cursor-pointer"
                 aria-label="Close dialog"
               >
                 <X className="w-5 h-5" />
               </button>
               
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-bold bg-[#E8B83F] text-[#064D2C] mb-3">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-bold bg-[#E8B83F] text-[#064D2C] mb-2.5">
                 <Tag className="w-3 h-3" />
                 <span>
                   {isKannada ? activeModalItem.categoryLabelKn : activeModalItem.categoryLabelEn}
                 </span>
               </div>
 
-              <h2 className="text-xl sm:text-2xl font-extrabold text-white leading-snug">
+              <h2 id="news-modal-title" className="text-lg sm:text-xl md:text-2xl font-extrabold text-white leading-snug pr-8">
                 {isKannada ? activeModalItem.titleKn : activeModalItem.titleEn}
               </h2>
 
-              <div className="mt-3 flex items-center gap-4 text-xs text-emerald-200/90 font-medium">
+              <div className="mt-2.5 flex flex-wrap items-center gap-3 sm:gap-4 text-xs text-emerald-200/90 font-medium">
                 <span className="flex items-center gap-1.5">
                   <Calendar className="w-3.5 h-3.5 text-[#E8B83F]" />
                   <span>{activeModalItem.date}</span>
                 </span>
-                <span>•</span>
+                <span className="hidden sm:inline text-white/40">•</span>
                 <span className="flex items-center gap-1.5">
                   <Building2 className="w-3.5 h-3.5 text-[#E8B83F]" />
-                  <span>{activeModalItem.source}</span>
+                  <span className="line-clamp-1">{activeModalItem.source}</span>
                 </span>
               </div>
             </div>
 
-            {/* Modal Body */}
-            <div className="p-6 overflow-y-auto space-y-4 text-[#17352A] text-sm leading-relaxed">
+            {/* Modal Scrollable Body */}
+            <div className="overflow-y-auto flex-1 p-5 sm:p-6 space-y-4 text-[#17352A] text-xs sm:text-sm leading-relaxed overscroll-contain">
               <div className="p-3.5 rounded-xl bg-[#EAF7EC] border border-[#D0DFD6] text-xs text-[#064D2C] font-semibold">
                 {isKannada ? activeModalItem.summaryKn : activeModalItem.summaryEn}
               </div>
@@ -318,7 +340,7 @@ export const News: React.FC = () => {
               </div>
 
               {activeModalItem.officialUrl && (
-                <div className="pt-4 border-t border-[#E4EEE7] flex items-center justify-between">
+                <div className="pt-3 border-t border-[#E4EEE7] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
                   <span className="text-xs text-[#61706A]">
                     {isKannada ? 'ಹೆಚ್ಚಿನ ಅಧಿಕೃತ ವಿವರಗಳಿಗಾಗಿ:' : 'Official Portal Link:'}
                   </span>
@@ -326,7 +348,7 @@ export const News: React.FC = () => {
                     href={activeModalItem.officialUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#087A3D] text-white text-xs font-bold hover:bg-[#064D2C] transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#087A3D] text-white text-xs font-bold hover:bg-[#064D2C] transition-colors self-start sm:self-auto shadow-xs"
                   >
                     <span>{isKannada ? 'ವೆಬ್‌ಸೈಟ್‌ಗೆ ಭೇಟಿ ನೀಡಿ' : 'Visit Official Portal'}</span>
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -335,8 +357,12 @@ export const News: React.FC = () => {
               )}
             </div>
 
-            {/* Modal Footer */}
-            <div className="bg-[#FAFDFB] p-4 border-t border-[#E4EEE7] flex justify-end">
+            {/* Modal Footer (Pinned at bottom) */}
+            <div className="flex-shrink-0 bg-[#FAFDFB] p-4 border-t border-[#E4EEE7] flex items-center justify-between">
+              <div className="text-[11px] text-[#087A3D] font-bold flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-[#087A3D]" />
+                <span>{isKannada ? 'ಅಧಿಕೃತ ಕೃಷಿ ಮಾಹಿತಿ' : 'Official Agricultural Resource'}</span>
+              </div>
               <button
                 type="button"
                 onClick={() => setActiveModalItem(null)}
@@ -346,7 +372,8 @@ export const News: React.FC = () => {
               </button>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );
