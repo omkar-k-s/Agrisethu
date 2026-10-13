@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import { LanguageProvider } from './context/LanguageContext';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
@@ -42,6 +43,8 @@ export const App: React.FC = () => {
           {/* Footer */}
           <Footer />
         </div>
+        {/* Vercel Web Analytics */}
+        <Analytics />
       </BrowserRouter>
     </LanguageProvider>
   );
