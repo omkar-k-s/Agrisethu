@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { Mail, Phone, MapPin, Send, CheckCircle2, ShieldCheck, Clock, Loader2, AlertCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, ShieldCheck, Loader2, AlertCircle } from 'lucide-react';
 
 export const Contact: React.FC = () => {
   const { t, isKannada } = useLanguage();
@@ -77,8 +77,8 @@ export const Contact: React.FC = () => {
       } else {
         setErrorMessage(
           isKannada
-            ? 'ಸಂದೇಶ ಕಳುಹಿಸುವಾಗ ದೋಷ ಕಂಡುಬಂದಿದೆ. ದಯವಿಟ್ಟು ನೇರವಾಗಿ ksomkar7@gmail.com ಗೆ ಇಮೇಲ್ ಮಾಡಿ.'
-            : 'Could not send automatically right now. Please try again or email us directly at ksomkar7@gmail.com'
+            ? 'ಸಂದೇಶ ಕಳುಹಿಸುವಾಗ ದೋಷ ಕಂಡುಬಂದಿದೆ. ದಯವಿಟ್ಟು ನೇರವಾಗಿ raithasetu@gmail.com ಗೆ ಇಮೇಲ್ ಮಾಡಿ.'
+            : 'Could not send automatically right now. Please try again or email us directly at raithasetu@gmail.com'
         );
       }
     } finally {
@@ -154,19 +154,6 @@ export const Contact: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-[#F6FBF6] border border-[#DCE8DF]">
-                  <Clock className="w-5 h-5 text-[#087A3D] flex-shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-bold text-[#064D2C] block">
-                      {isKannada ? 'ಕಾರ್ಯನಿರ್ವಹಣಾ ಸಮಯ' : 'Operating Hours'}
-                    </span>
-                    <p className="text-xs text-[#17352A] mt-0.5">
-                      {isKannada
-                        ? 'ಸೋಮವಾರದಿಂದ ಶನಿವಾರ, ಬೆಳಿಗ್ಗೆ ೯:೦೦ ರಿಂದ ಸಂಜೆ ೬:೦೦ ರವರೆಗೆ'
-                        : 'Monday to Saturday, 9:00 AM – 6:00 PM IST'}
-                    </p>
-                  </div>
-                </div>
               </div>
 
               <div className="p-3.5 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900 flex items-start gap-2">

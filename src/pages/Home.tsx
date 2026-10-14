@@ -12,7 +12,6 @@ import { VisionMissionSection } from '../components/home/VisionMissionSection';
 import { WhoCanJoinSection } from '../components/home/WhoCanJoinSection';
 import { WhyRaithaSetuSection } from '../components/home/WhyAgriSethuSection';
 import { RoadmapSection } from '../components/home/RoadmapSection';
-import { ContactSection } from '../components/home/ContactSection';
 
 export const Home: React.FC = () => {
   useEffect(() => {
@@ -34,7 +33,6 @@ export const Home: React.FC = () => {
       <WhoCanJoinSection />
       <WhyRaithaSetuSection />
       <RoadmapSection />
-      <ContactSection />
     </div>
   );
 };
